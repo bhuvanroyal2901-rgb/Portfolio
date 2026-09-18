@@ -2,354 +2,929 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bhuvaneshwar Neelam | Video Editor & Videographer</title>
+<title>Bhuvaneshwar Neelam | Video Editor & Videographer</title>
 
-    <meta name="description"
-        content="Bhuvaneshwar Neelam — Video Editor, Videographer and Visual Content Creator.">
+<meta name="description"
+content="Bhuvaneshwar Neelam — Video Editor, Videographer and Visual Content Creator.">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<style>
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080808;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+/* =========================================================
+   RESET
+========================================================= */
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* NAVBAR */
+html {
+    scroll-behavior: smooth;
+}
 
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            background: rgba(8, 8, 8, 0.92);
-            backdrop-filter: blur(12px);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 7%;
-            z-index: 1000;
-            border-bottom: 1px solid #1c1c1c;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050505;
+    color: #fff;
+    overflow-x: hidden;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
+/* =========================================================
+   CUSTOM CURSOR GLOW
+========================================================= */
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
+.cursor-glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,0.07) 0%,
+        rgba(255,255,255,0.025) 35%,
+        transparent 70%
+    );
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
 
-        .nav-links a {
-            color: #aaa;
-            font-size: 14px;
-            transition: 0.3s;
-        }
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
-        .nav-links a:hover {
-            color: #fff;
-        }
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,0.035),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255,255,255,0.025),
+            transparent 30%
+        ),
+        #050505;
+}
 
-        /* HERO */
+.background::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.025);
+    filter: blur(100px);
+    top: -200px;
+    left: -200px;
+    animation: floatGlow 12s ease-in-out infinite alternate;
+}
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 20px 60px;
-            background:
-                radial-gradient(circle at center, #171717 0%, #080808 60%);
-        }
+.background::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.018);
+    filter: blur(100px);
+    right: -150px;
+    bottom: -150px;
+    animation: floatGlow2 15s ease-in-out infinite alternate;
+}
 
-        .hero-content {
-            max-width: 900px;
-        }
+@keyframes floatGlow {
+    from {
+        transform: translate(0,0);
+    }
 
-        .hero h1 {
-            font-size: clamp(45px, 8vw, 100px);
-            line-height: 0.95;
-            letter-spacing: -3px;
-            font-weight: 900;
-        }
+    to {
+        transform: translate(180px,120px);
+    }
+}
 
-        .hero p {
-            margin-top: 25px;
-            color: #aaa;
-            font-size: clamp(16px, 2vw, 21px);
-            letter-spacing: 1px;
-        }
+@keyframes floatGlow2 {
+    from {
+        transform: translate(0,0);
+    }
 
-        .hero-button {
-            display: inline-block;
-            margin-top: 35px;
-            padding: 14px 28px;
-            border: 1px solid #444;
-            border-radius: 30px;
-            color: #fff;
-            transition: 0.3s;
-        }
+    to {
+        transform: translate(-150px,-100px);
+    }
+}
 
-        .hero-button:hover {
-            background: #fff;
-            color: #000;
-        }
+/* =========================================================
+   GRAIN
+========================================================= */
 
-        /* SECTIONS */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.035;
 
-        section {
-            padding: 100px 7%;
-        }
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
 
-        .section-title {
-            font-size: 42px;
-            margin-bottom: 45px;
-            letter-spacing: -1px;
-        }
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-        /* SHOWREEL */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
 
-        .showreel-container {
-            max-width: 1100px;
-            margin: auto;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        .showreel-video {
-            width: 100%;
-            max-height: 650px;
-            display: block;
-            background: #000;
-            border-radius: 12px;
-            border: 1px solid #222;
-        }
+    padding: 0 7%;
 
-        /* VIDEOS */
+    background: rgba(5,5,5,0.68);
+    backdrop-filter: blur(18px);
 
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
+    border-bottom: 1px solid rgba(255,255,255,0.07);
 
-        .video-card {
-            background: #101010;
-            border: 1px solid #202020;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
+    z-index: 1000;
+}
 
-        .video-card:hover {
-            transform: translateY(-5px);
-            border-color: #444;
-        }
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
 
-        .video-card video {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            display: block;
-            background: #000;
-            object-fit: cover;
-        }
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
 
-        .video-info {
-            padding: 18px 20px 20px;
-        }
+.nav-links a {
+    position: relative;
+    color: #888;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+}
 
-        .video-info h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: 0.3s ease;
+}
 
-        .video-info p {
-            color: #777;
-            font-size: 13px;
-        }
+.nav-links a:hover {
+    color: #fff;
+}
 
-        /* IMAGES */
+.nav-links a:hover::after {
+    width: 100%;
+}
 
-        .image-placeholder {
-            min-height: 250px;
-            border: 1px dashed #333;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            text-align: center;
-            padding: 30px;
-        }
+/* =========================================================
+   HERO
+========================================================= */
 
-        /* CONTACT */
+.hero {
+    min-height: 100vh;
 
-        .contact {
-            text-align: center;
-            border-top: 1px solid #1c1c1c;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .contact h2 {
-            font-size: 50px;
-            margin-bottom: 20px;
-        }
+    text-align: center;
 
-        .contact p {
-            color: #999;
-            margin-bottom: 10px;
-        }
+    padding: 120px 20px 80px;
 
-        .contact a {
-            color: #fff;
-        }
+    position: relative;
+}
 
-        .instagram {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            border: 1px solid #333;
-            border-radius: 30px;
-            transition: 0.3s;
-        }
+.hero-content {
+    max-width: 1100px;
+    animation: heroReveal 1.3s ease forwards;
+}
 
-        .instagram:hover {
-            background: #fff;
-            color: #000;
-        }
+@keyframes heroReveal {
 
-        /* FOOTER */
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #555;
-            font-size: 13px;
-            border-top: 1px solid #151515;
-        }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-        /* MOBILE */
+}
 
-        @media (max-width: 768px) {
+.hero-small {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #777;
+    margin-bottom: 25px;
+}
 
-            nav {
-                padding: 0 5%;
-            }
+.hero h1 {
+    font-size: clamp(48px, 9vw, 120px);
+    line-height: 0.88;
+    letter-spacing: -5px;
+    font-weight: 900;
 
-            .nav-links {
-                gap: 15px;
-            }
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #777 100%
+    );
 
-            .nav-links a {
-                font-size: 12px;
-            }
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-            section {
-                padding: 75px 5%;
-            }
+.hero p {
+    margin-top: 30px;
 
-            .section-title {
-                font-size: 34px;
-                margin-bottom: 30px;
-            }
+    color: #888;
 
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
+    font-size: clamp(15px, 2vw, 20px);
 
-            .hero h1 {
-                letter-spacing: -2px;
-            }
+    letter-spacing: 1.5px;
+}
 
-            .contact h2 {
-                font-size: 38px;
-            }
-        }
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
 
-        @media (max-width: 500px) {
+    margin-top: 40px;
 
-            nav {
-                height: 60px;
-            }
+    padding: 15px 26px;
 
-            .logo {
-                font-size: 19px;
-            }
+    border: 1px solid #333;
+    border-radius: 40px;
 
-            .nav-links {
-                gap: 10px;
-            }
+    color: #fff;
 
-            .nav-links a {
-                font-size: 10px;
-            }
-        }
-    </style>
+    text-decoration: none;
+
+    transition: 0.4s ease;
+
+    background: rgba(255,255,255,0.02);
+}
+
+.hero-button:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-4px);
+}
+
+.hero-button span {
+    transition: 0.3s;
+}
+
+.hero-button:hover span {
+    transform: translateY(3px);
+}
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: #555;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+
+    0%,100% {
+        opacity: 0.35;
+        transform: translate(-50%,0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%,7px);
+    }
+
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section {
+    padding: 120px 7%;
+    position: relative;
+}
+
+.section-number {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: clamp(38px,5vw,65px);
+    letter-spacing: -2px;
+    margin-bottom: 50px;
+}
+
+/* =========================================================
+   SHOWREEL
+========================================================= */
+
+.showreel-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.showreel-wrapper {
+    position: relative;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    border: 1px solid #222;
+
+    background: #000;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.5);
+}
+
+.showreel-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border: 1px solid rgba(255,255,255,0.04);
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.showreel-video {
+    width: 100%;
+    display: block;
+
+    max-height: 680px;
+
+    background: #000;
+}
+
+/* =========================================================
+   VIDEO GRID
+========================================================= */
+
+.video-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 30px;
+
+    max-width: 1250px;
+
+    margin: auto;
+}
+
+.video-card {
+
+    position: relative;
+
+    background: #0b0b0b;
+
+    border: 1px solid #1c1c1c;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.5s cubic-bezier(.2,.8,.2,1),
+        border-color 0.4s,
+        box-shadow 0.5s;
+
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.video-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.video-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #444;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.5);
+}
+
+.video-card video {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    display: block;
+
+    object-fit: cover;
+
+    background: #000;
+
+    transition: transform 0.7s ease;
+}
+
+.video-card:hover video {
+    transform: scale(1.025);
+}
+
+.video-info {
+
+    padding: 20px 22px 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.video-info h3 {
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+.video-info p {
+
+    color: #666;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+.image-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
+}
+
+.image-placeholder {
+
+    min-height: 300px;
+
+    border: 1px dashed #2b2b2b;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #555;
+
+    text-align: center;
+
+    transition: 0.4s;
+}
+
+.image-placeholder:hover {
+
+    border-color: #555;
+
+    background: rgba(255,255,255,0.015);
+
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(255,255,255,0.07);
+}
+
+.contact h2 {
+
+    font-size:
+        clamp(40px,6vw,75px);
+
+    letter-spacing:
+        -3px;
+
+    margin-bottom:
+        25px;
+}
+
+.contact p {
+
+    color:
+        #777;
+
+    margin-bottom:
+        8px;
+}
+
+.contact-email {
+
+    font-size:
+        18px;
+
+    color:
+        #fff;
+
+    text-decoration:
+        none;
+
+    transition:
+        0.3s;
+}
+
+.contact-email:hover {
+
+    color:
+        #aaa;
+}
+
+.instagram {
+
+    display:
+        inline-block;
+
+    margin-top:
+        25px;
+
+    padding:
+        13px 25px;
+
+    border:
+        1px solid #333;
+
+    border-radius:
+        30px;
+
+    transition:
+        0.4s;
+}
+
+.instagram:hover {
+
+    background:
+        #fff;
+
+    color:
+        #000;
+
+    transform:
+        translateY(-3px);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    text-align:
+        center;
+
+    padding:
+        35px;
+
+    color:
+        #444;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        1px;
+
+    border-top:
+        1px solid #151515;
+}
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(45px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.active {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    nav {
+
+        padding:
+            0 5%;
+
+        height:
+            64px;
+    }
+
+    .logo {
+
+        font-size:
+            19px;
+    }
+
+    .nav-links {
+
+        gap:
+            15px;
+    }
+
+    .nav-links a {
+
+        font-size:
+            10px;
+    }
+
+    section {
+
+        padding:
+            85px 5%;
+    }
+
+    .hero {
+
+        padding:
+            100px 20px 70px;
+    }
+
+    .hero h1 {
+
+        letter-spacing:
+            -3px;
+    }
+
+    .hero-small {
+
+        letter-spacing:
+            3px;
+    }
+
+    .video-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            22px;
+    }
+
+    .video-info {
+
+        padding:
+            17px;
+    }
+
+    .image-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .image-placeholder {
+
+        min-height:
+            220px;
+    }
+
+    .contact h2 {
+
+        letter-spacing:
+            -2px;
+    }
+
+    .cursor-glow {
+
+        display:
+            none;
+    }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .nav-links {
+
+        gap:
+            9px;
+    }
+
+    .nav-links a {
+
+        font-size:
+            9px;
+    }
+
+    .hero h1 {
+
+        font-size:
+            46px;
+    }
+
+    .section-title {
+
+        font-size:
+            36px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
 
-    <nav>
-        <div class="logo">BN</div>
+<!-- BACKGROUND -->
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#showreel">Showreel</a></li>
-            <li><a href="#videos">Videos</a></li>
-            <li><a href="#images">Images</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<div class="background"></div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
 
 
-    <!-- HOME -->
+<!-- ======================================================
+     NAVIGATION
+====================================================== -->
 
-    <section class="hero" id="home">
+<nav>
 
-        <div class="hero-content">
+    <div class="logo">
+        BN
+    </div>
 
-            <h1>BHUVANESHWAR<br>NEELAM</h1>
+    <ul class="nav-links">
 
-            <p>
-                Video Editor • Videographer • Visual Content Creator
-            </p>
+        <li>
+            <a href="#home">Home</a>
+        </li>
 
-            <a href="#showreel" class="hero-button">
-                Watch Showreel
-            </a>
+        <li>
+            <a href="#showreel">Showreel</a>
+        </li>
 
+        <li>
+            <a href="#videos">Videos</a>
+        </li>
+
+        <li>
+            <a href="#images">Images</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            Visual Content Creator
         </div>
 
-    </section>
+        <h1>
+            BHUVANESHWAR<br>
+            NEELAM
+        </h1>
+
+        <p>
+            Video Editor • Videographer • Visual Content Creator
+        </p>
+
+        <a
+            href="#showreel"
+            class="hero-button">
+
+            Watch Showreel
+
+            <span>↓</span>
+
+        </a>
+
+    </div>
+
+    <div class="scroll-indicator">
+        Scroll
+    </div>
+
+</section>
 
 
-    <!-- SHOWREEL -->
+<!-- ======================================================
+     SHOWREEL
+====================================================== -->
 
-    <section id="showreel">
+<section id="showreel">
 
-        <div class="showreel-container">
+    <div class="showreel-container reveal">
 
-            <h2 class="section-title">Showreel</h2>
+        <div class="section-number">
+            01 / SHOWREEL
+        </div>
+
+        <h2 class="section-title">
+            Selected Work
+        </h2>
+
+        <div class="showreel-wrapper">
 
             <video
                 class="showreel-video"
@@ -367,264 +942,436 @@
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- VIDEOS -->
+<!-- ======================================================
+     VIDEOS
+====================================================== -->
 
-    <section id="videos">
+<section id="videos">
 
-        <h2 class="section-title">Selected Work</h2>
+    <div class="section-number reveal">
+        02 / VIDEO WORK
+    </div>
 
-        <div class="video-grid">
-
-
-            <!-- VIDEO 1 -->
-
-            <div class="video-card">
-
-                <video
-                    controls
-                    playsinline
-                    preload="metadata">
-
-                    <source
-                        src="videos/Influencer Reel.mp4"
-                        type="video/mp4">
-
-                </video>
-
-                <div class="video-info">
-
-                    <h3>Influencer Reel</h3>
-
-                    <p>Short-form Video Editing</p>
-
-                </div>
-
-            </div>
+    <h2 class="section-title reveal">
+        Creative Edits
+    </h2>
 
 
-            <!-- VIDEO 2 -->
+    <div class="video-grid">
 
-            <div class="video-card">
 
-                <video
-                    controls
-                    playsinline
-                    preload="metadata">
+        <!-- VIDEO 1 -->
 
-                    <source
-                        src="videos/Influencer Sample edit.mp4"
-                        type="video/mp4">
+        <div class="video-card">
 
-                </video>
+            <video
+                controls
+                playsinline
+                preload="metadata">
 
-                <div class="video-info">
+                <source
+                    src="videos/Influencer Reel.mp4"
+                    type="video/mp4">
 
-                    <h3>Influencer Sample Edit</h3>
+            </video>
 
-                    <p>Social Media Editing</p>
+            <div class="video-info">
 
-                </div>
+                <h3>
+                    Influencer Reel
+                </h3>
+
+                <p>
+                    Short Form
+                </p>
 
             </div>
-
-
-            <!-- VIDEO 3 -->
-
-            <div class="video-card">
-
-                <video
-                    controls
-                    playsinline
-                    preload="metadata">
-
-                    <source
-                        src="videos/PrintfulBrand.mp4"
-                        type="video/mp4">
-
-                </video>
-
-                <div class="video-info">
-
-                    <h3>Printful Brand</h3>
-
-                    <p>Brand Video</p>
-
-                </div>
-
-            </div>
-
-
-            <!-- VIDEO 4 -->
-
-            <div class="video-card">
-
-                <video
-                    controls
-                    playsinline
-                    preload="metadata">
-
-                    <source
-                        src="videos/Sneakers.mp4"
-                        type="video/mp4">
-
-                </video>
-
-                <div class="video-info">
-
-                    <h3>Sneakers</h3>
-
-                    <p>Product Video</p>
-
-                </div>
-
-            </div>
-
-
-            <!-- VIDEO 5 -->
-
-            <div class="video-card">
-
-                <video
-                    controls
-                    playsinline
-                    preload="metadata">
-
-                    <source
-                        src="videos/Songs reels.mp4"
-                        type="video/mp4">
-
-                </video>
-
-                <div class="video-info">
-
-                    <h3>Song Reels</h3>
-
-                    <p>Creative Short-form Edit</p>
-
-                </div>
-
-            </div>
-
-
-            <!-- VIDEO 6 -->
-
-            <div class="video-card">
-
-                <video
-                    controls
-                    playsinline
-                    preload="metadata">
-
-                    <source
-                        src="videos/Temple Reel.mp4"
-                        type="video/mp4">
-
-                </video>
-
-                <div class="video-info">
-
-                    <h3>Temple Reel</h3>
-
-                    <p>Cinematic Reel</p>
-
-                </div>
-
-            </div>
-
-
-            <!-- VIDEO 7 -->
-
-          
-
-
-            <!-- VIDEO 8 -->
-
-            <div class="video-card">
-
-                <video
-                    controls
-                    playsinline
-                    preload="metadata">
-
-                    <source
-                        src="videos/showreel.mp4"
-                        type="video/mp4">
-
-                </video>
-
-                <div class="video-info">
-
-                    <h3>Showreel</h3>
-
-                    <p>Video Editing & Videography</p>
-
-                </div>
-
-            </div>
-
 
         </div>
 
-    </section>
+
+        <!-- VIDEO 2 -->
+
+        <div class="video-card">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="videos/Influencer Sample edit.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <div class="video-info">
+
+                <h3>
+                    Influencer Sample Edit
+                </h3>
+
+                <p>
+                    Social Media
+                </p>
+
+            </div>
+
+        </div>
 
 
-    <!-- IMAGES -->
+        <!-- VIDEO 3 -->
 
-    <section id="images">
+        <div class="video-card">
 
-        <h2 class="section-title">Photography</h2>
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="videos/PrintfulBrand.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <div class="video-info">
+
+                <h3>
+                    Printful Brand
+                </h3>
+
+                <p>
+                    Brand Video
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 4 -->
+
+        <div class="video-card">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="videos/Sneakers.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <div class="video-info">
+
+                <h3>
+                    Sneakers
+                </h3>
+
+                <p>
+                    Product Video
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 5 -->
+
+        <div class="video-card">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="videos/Songs reels.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <div class="video-info">
+
+                <h3>
+                    Song Reels
+                </h3>
+
+                <p>
+                    Creative Edit
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 6 -->
+
+        <div class="video-card">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="videos/Temple Reel.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <div class="video-info">
+
+                <h3>
+                    Temple Reel
+                </h3>
+
+                <p>
+                    Cinematic Reel
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     IMAGES
+====================================================== -->
+
+<section id="images">
+
+    <div class="section-number reveal">
+        03 / PHOTOGRAPHY
+    </div>
+
+    <h2 class="section-title reveal">
+        Photography
+    </h2>
+
+    <div class="image-grid reveal">
 
         <div class="image-placeholder">
-
-            <p>
-                Photography work will be added here.
-            </p>
-
+            Photography
         </div>
 
-    </section>
+        <div class="image-placeholder">
+            Photography
+        </div>
+
+        <div class="image-placeholder">
+            Photography
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- CONTACT -->
+<!-- ======================================================
+     CONTACT
+====================================================== -->
 
-    <section class="contact" id="contact">
+<section
+    class="contact reveal"
+    id="contact">
 
-        <h2>Let's Work Together.</h2>
+    <div class="section-number">
+        04 / CONTACT
+    </div>
 
-        <p>
-            Available for video editing, videography and visual content projects.
-        </p>
+    <h2>
+        Let's Work Together.
+    </h2>
 
-        <p>
-            <a href="mailto:bhuvanroyal2901@gmail.com">
-                bhuvanroyal2901@gmail.com
-            </a>
-        </p>
+    <p>
+        Available for video editing, videography
+        and visual content projects.
+    </p>
+
+    <p>
 
         <a
-            class="instagram"
-            href="https://www.instagram.com/smartblink_visuals/"
-            target="_blank"
-            rel="noopener noreferrer">
+            class="contact-email"
+            href="mailto:bhuvanroyal2901@gmail.com">
 
-            Instagram — @smartblink_visuals
+            bhuvanroyal2901@gmail.com
 
         </a>
 
-    </section>
+    </p>
 
 
-    <!-- FOOTER -->
+    <a
+        class="instagram"
+        href="https://www.instagram.com/smartblink_visuals/"
+        target="_blank"
+        rel="noopener noreferrer">
 
-    <footer>
+        Instagram — @smartblink_visuals
 
-        © 2026 Bhuvaneshwar Neelam. All Rights Reserved.
+    </a>
 
-    </footer>
+</section>
 
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    © 2026 Bhuvaneshwar Neelam
+    · Visual Content Creator
+
+</footer>
+
+
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+const cursorGlow =
+    document.getElementById("cursorGlow");
+
+document.addEventListener("mousemove", (e) => {
+
+    cursorGlow.style.left =
+        e.clientX + "px";
+
+    cursorGlow.style.top =
+        e.clientY + "px";
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const reveals =
+    document.querySelectorAll(".reveal");
+
+const videoCards =
+    document.querySelectorAll(".video-card");
+
+
+const observer =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("active");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+reveals.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   VIDEO CARD ANIMATION
+========================================================= */
+
+const cardObserver =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach((entry, index) => {
+
+                if (entry.isIntersecting) {
+
+                    setTimeout(() => {
+
+                        entry.target.classList.add("show");
+
+                    }, index * 120);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+videoCards.forEach(card => {
+
+    cardObserver.observe(card);
+
+});
+
+
+/* =========================================================
+   PAUSE OTHER VIDEOS WHEN ONE PLAYS
+========================================================= */
+
+const videos =
+    document.querySelectorAll("video");
+
+videos.forEach(video => {
+
+    video.addEventListener("play", () => {
+
+        videos.forEach(otherVideo => {
+
+            if (otherVideo !== video) {
+
+                otherVideo.pause();
+
+            }
+
+        });
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
