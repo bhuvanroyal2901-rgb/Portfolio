@@ -11,9 +11,9 @@
 
 <style>
 
-/* =========================
+/* =========================================================
    RESET
-========================= */
+========================================================= */
 
 * {
     margin: 0;
@@ -33,80 +33,117 @@ body {
 }
 
 
-/* =========================
-   BACKGROUND
-========================= */
+/* =========================================================
+   AMBIENT BACKGROUND
+========================================================= */
 
 body::before {
     content: "";
     position: fixed;
+
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(120,120,255,0.12), transparent 65%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(120,120,255,0.12),
+            transparent 65%
+        );
+
     top: -250px;
     left: -200px;
+
     pointer-events: none;
+
     animation: floatGlow 10s infinite alternate ease-in-out;
+
     z-index: -2;
 }
 
 body::after {
     content: "";
     position: fixed;
+
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(255,255,255,0.07), transparent 65%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.07),
+            transparent 65%
+        );
+
     bottom: -250px;
     right: -200px;
+
     pointer-events: none;
+
     animation: floatGlow2 12s infinite alternate ease-in-out;
+
     z-index: -2;
 }
 
 @keyframes floatGlow {
+
     from {
         transform: translate(0,0);
     }
+
     to {
         transform: translate(150px,100px);
     }
+
 }
 
 @keyframes floatGlow2 {
+
     from {
         transform: translate(0,0);
     }
+
     to {
         transform: translate(-150px,-100px);
     }
+
 }
 
 
-/* =========================
+/* =========================================================
    NAVBAR
-========================= */
+========================================================= */
 
 nav {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
+
     padding: 20px 6%;
+
     display: flex;
+
     justify-content: space-between;
     align-items: center;
 
     background: rgba(5,5,5,0.65);
+
     backdrop-filter: blur(18px);
 
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
 
     z-index: 1000;
 }
 
 .logo {
     font-size: 22px;
+
     font-weight: 800;
+
     letter-spacing: 2px;
 }
 
@@ -116,15 +153,21 @@ nav {
 
 .nav-links {
     display: flex;
+
     gap: 35px;
+
     list-style: none;
 }
 
 .nav-links a {
     color: #fff;
+
     text-decoration: none;
+
     font-size: 14px;
+
     opacity: 0.65;
+
     transition: 0.3s;
 }
 
@@ -133,148 +176,273 @@ nav {
 }
 
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
+
     min-height: 100vh;
+
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
-    padding: 120px 8% 80px;
+
+    padding:
+        120px 8%
+        80px;
+
     position: relative;
 }
 
 .hero-small {
+
     font-size: 13px;
+
     letter-spacing: 5px;
+
     opacity: 0.55;
+
     margin-bottom: 25px;
 
-    animation: fadeUp 1s ease forwards;
+    animation:
+        fadeUp
+        1s
+        ease
+        forwards;
 }
 
 .hero h1 {
-    font-size: clamp(50px, 9vw, 130px);
+
+    font-size:
+        clamp(
+            50px,
+            9vw,
+            130px
+        );
+
     line-height: 0.9;
+
     letter-spacing: -5px;
+
     max-width: 1100px;
 
-    background: linear-gradient(120deg,#fff,#777);
+    background:
+        linear-gradient(
+            120deg,
+            #fff,
+            #777
+        );
+
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 
-    animation: fadeUp 1s 0.2s ease both;
+    animation:
+        fadeUp
+        1s
+        0.2s
+        ease
+        both;
 }
 
 .hero-role {
+
     margin-top: 35px;
+
     font-size: 17px;
+
     letter-spacing: 2px;
+
     opacity: 0.65;
 
-    animation: fadeUp 1s 0.4s ease both;
+    animation:
+        fadeUp
+        1s
+        0.4s
+        ease
+        both;
 }
 
 .scroll-down {
+
     position: absolute;
+
     bottom: 40px;
+
     left: 8%;
 
     font-size: 11px;
+
     letter-spacing: 3px;
+
     opacity: 0.4;
 
-    animation: fadeUp 1s 0.8s ease both;
+    animation:
+        fadeUp
+        1s
+        0.8s
+        ease
+        both;
 }
 
 .scroll-down::after {
+
     content: "";
+
     display: block;
+
     width: 1px;
+
     height: 55px;
-    background: rgba(255,255,255,0.4);
+
+    background:
+        rgba(255,255,255,0.4);
+
     margin-top: 15px;
-    animation: scrollLine 2s infinite;
+
+    animation:
+        scrollLine
+        2s
+        infinite;
 }
 
 @keyframes scrollLine {
+
     0%,100% {
-        transform: scaleY(0.4);
+        transform:
+            scaleY(0.4);
+
         transform-origin: top;
     }
 
     50% {
-        transform: scaleY(1);
+        transform:
+            scaleY(1);
     }
+
 }
 
 
-/* =========================
+/* =========================================================
    SECTIONS
-========================= */
+========================================================= */
 
 section {
-    padding: 120px 8%;
+
+    padding:
+        120px 8%;
 }
 
 .section-label {
+
     font-size: 11px;
+
     letter-spacing: 4px;
+
     opacity: 0.4;
+
     margin-bottom: 20px;
 }
 
 .section-title {
-    font-size: clamp(35px,5vw,65px);
+
+    font-size:
+        clamp(
+            35px,
+            5vw,
+            65px
+        );
+
     margin-bottom: 60px;
+
     letter-spacing: -2px;
 }
 
 
-/* =========================
+/* =========================================================
    SHOWREEL
-========================= */
+   ORIGINAL VIDEO RATIO
+========================================================= */
 
 .showreel-container {
+
     position: relative;
+
+    width: 100%;
+
+    min-height: 300px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
     border-radius: 18px;
+
     overflow: hidden;
 
-    border: 1px solid rgba(255,255,255,0.1);
+    border:
+        1px solid rgba(255,255,255,0.1);
 
     background: #0b0b0b;
 
-    box-shadow: 0 30px 100px rgba(0,0,0,0.5);
+    padding: 20px;
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,0.5);
 }
 
 .showreel-container video {
-    width: 100%;
-    display: block;
+
+    width: auto;
+
+    max-width: 100%;
+
+    height: auto;
+
     max-height: 75vh;
-    object-fit: cover;
+
+    display: block;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    background: #000;
 }
 
 
-/* =========================
+/* =========================================================
    VIDEO GRID
-========================= */
+========================================================= */
 
 .video-grid {
+
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap: 35px;
 }
 
 .video-card {
+
     position: relative;
+
     border-radius: 15px;
+
     overflow: hidden;
 
     background: #0b0b0b;
 
-    border: 1px solid rgba(255,255,255,0.08);
+    border:
+        1px solid rgba(255,255,255,0.08);
 
     transition:
         transform 0.5s ease,
@@ -282,72 +450,106 @@ section {
         box-shadow 0.5s ease;
 
     opacity: 0;
-    transform: translateY(50px);
+
+    transform:
+        translateY(50px);
 }
 
 .video-card.visible {
+
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
 .video-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(255,255,255,0.25);
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(255,255,255,0.25);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.6);
 }
 
 .video-card video {
+
     width: 100%;
+
     display: block;
 
     aspect-ratio: 16 / 9;
+
     object-fit: cover;
 
-    transition: transform 0.6s ease;
+    transition:
+        transform 0.6s ease;
 }
 
 .video-card:hover video {
-    transform: scale(1.04);
+
+    transform:
+        scale(1.04);
 }
 
 .video-info {
-    padding: 18px 20px;
+
+    padding:
+        18px 20px;
 }
 
 .video-info h3 {
+
     font-size: 16px;
+
     margin-bottom: 7px;
 }
 
 .video-info p {
+
     font-size: 12px;
+
     opacity: 0.45;
 }
 
 
-/* =========================
+/* =========================================================
    IMAGE GALLERY
-========================= */
+========================================================= */
 
 .image-grid {
+
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap: 18px;
 }
 
 .image-card {
+
     position: relative;
+
     overflow: hidden;
+
     border-radius: 14px;
 
-    border: 1px solid rgba(255,255,255,0.08);
+    border:
+        1px solid rgba(255,255,255,0.08);
 
     cursor: pointer;
 
     background: #0b0b0b;
 
     opacity: 0;
-    transform: translateY(40px);
+
+    transform:
+        translateY(40px);
 
     transition:
         opacity 0.7s ease,
@@ -356,16 +558,23 @@ section {
 }
 
 .image-card.visible {
+
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
 .image-card:hover {
-    border-color: rgba(255,255,255,0.3);
+
+    border-color:
+        rgba(255,255,255,0.3);
 }
 
 .image-card img {
+
     width: 100%;
+
     height: 330px;
 
     display: block;
@@ -378,62 +587,86 @@ section {
 }
 
 .image-card:hover img {
-    transform: scale(1.08);
-    filter: brightness(0.75);
+
+    transform:
+        scale(1.08);
+
+    filter:
+        brightness(0.75);
 }
 
 
-/* =========================
+/* =========================================================
    LIGHTBOX
-========================= */
+========================================================= */
 
 .lightbox {
+
     position: fixed;
+
     inset: 0;
 
-    background: rgba(0,0,0,0.94);
+    background:
+        rgba(0,0,0,0.94);
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     padding: 40px;
 
     opacity: 0;
+
     visibility: hidden;
 
-    transition: 0.35s ease;
+    transition:
+        0.35s ease;
 
     z-index: 3000;
 }
 
 .lightbox.active {
+
     opacity: 1;
+
     visibility: visible;
 }
 
 .lightbox img {
+
     max-width: 90%;
+
     max-height: 85vh;
 
     object-fit: contain;
 
     border-radius: 8px;
 
-    box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,0.8);
 
-    transform: scale(0.92);
-    transition: transform 0.4s ease;
+    transform:
+        scale(0.92);
+
+    transition:
+        transform 0.4s ease;
 }
 
 .lightbox.active img {
-    transform: scale(1);
+
+    transform:
+        scale(1);
 }
 
 .close-lightbox {
+
     position: absolute;
 
     top: 25px;
+
     right: 35px;
 
     font-size: 35px;
@@ -448,24 +681,30 @@ section {
 }
 
 .close-lightbox:hover {
+
     opacity: 1;
 }
 
 .lightbox-btn {
+
     position: absolute;
 
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
     width: 50px;
+
     height: 50px;
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.08);
+    background:
+        rgba(255,255,255,0.08);
 
-    border: 1px solid rgba(255,255,255,0.15);
+    border:
+        1px solid rgba(255,255,255,0.15);
 
     color: white;
 
@@ -477,7 +716,9 @@ section {
 }
 
 .lightbox-btn:hover {
-    background: rgba(255,255,255,0.18);
+
+    background:
+        rgba(255,255,255,0.18);
 }
 
 .prev {
@@ -489,44 +730,66 @@ section {
 }
 
 
-/* =========================
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact {
+
     min-height: 70vh;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
 }
 
 .contact h2 {
-    font-size: clamp(45px,7vw,90px);
+
+    font-size:
+        clamp(
+            45px,
+            7vw,
+            90px
+        );
+
     letter-spacing: -4px;
+
     margin-bottom: 35px;
 }
 
 .contact p {
+
     max-width: 550px;
+
     line-height: 1.8;
+
     opacity: 0.55;
+
     margin-bottom: 35px;
 }
 
 .contact-links {
+
     display: flex;
+
     gap: 25px;
+
     flex-wrap: wrap;
 }
 
 .contact-links a {
+
     color: white;
+
     text-decoration: none;
 
-    padding: 14px 22px;
+    padding:
+        14px 22px;
 
-    border: 1px solid rgba(255,255,255,0.15);
+    border:
+        1px solid rgba(255,255,255,0.15);
 
     border-radius: 30px;
 
@@ -536,139 +799,232 @@ section {
 }
 
 .contact-links a:hover {
+
     background: white;
+
     color: black;
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
-    padding: 40px 8%;
 
-    border-top: 1px solid rgba(255,255,255,0.08);
+    padding:
+        40px 8%;
+
+    border-top:
+        1px solid rgba(255,255,255,0.08);
 
     font-size: 11px;
 
     opacity: 0.35;
 
     display: flex;
+
     justify-content: space-between;
 }
 
 
-/* =========================
+/* =========================================================
    ANIMATIONS
-========================= */
+========================================================= */
 
 @keyframes fadeUp {
 
     from {
+
         opacity: 0;
-        transform: translateY(30px);
+
+        transform:
+            translateY(30px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================================
+   TABLET
+========================================================= */
 
-@media(max-width:800px){
+@media(max-width:800px) {
 
     nav {
-        padding: 18px 5%;
+
+        padding:
+            18px 5%;
     }
 
     .nav-links {
+
         gap: 15px;
     }
 
     .nav-links a {
+
         font-size: 11px;
     }
 
     section {
-        padding: 90px 5%;
+
+        padding:
+            90px 5%;
     }
 
     .hero {
+
         padding-left: 5%;
+
         padding-right: 5%;
     }
 
     .hero h1 {
-        letter-spacing: -3px;
+
+        letter-spacing:
+            -3px;
     }
 
     .video-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
     }
 
     .image-grid {
-        grid-template-columns: repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .image-card img {
+
         height: 250px;
     }
 
     .lightbox {
+
         padding: 20px;
     }
 
     .lightbox img {
+
         max-width: 95%;
     }
 
     .prev {
+
         left: 10px;
     }
 
     .next {
+
         right: 10px;
     }
 
     .lightbox-btn {
+
         width: 42px;
+
         height: 42px;
     }
 
     footer {
-        flex-direction: column;
+
+        flex-direction:
+            column;
+
         gap: 10px;
     }
 
 }
 
-@media(max-width:500px){
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:500px) {
 
     .nav-links {
+
         gap: 9px;
     }
 
     .nav-links a {
+
         font-size: 9px;
     }
 
     .logo {
+
         font-size: 17px;
     }
 
     .image-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
     }
 
     .image-card img {
+
         height: 350px;
+    }
+
+    /* Keep vertical showreel completely visible */
+
+    .showreel-container {
+
+        padding: 10px;
+
+        min-height: 250px;
+    }
+
+    .showreel-container video {
+
+        max-width: 100%;
+
+        max-height: 75vh;
+
+        width: auto;
+
+        height: auto;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:380px) {
+
+    .nav-links {
+
+        gap: 7px;
+    }
+
+    .nav-links a {
+
+        font-size: 8px;
+    }
+
+    .hero-role {
+
+        font-size: 13px;
+
+        line-height: 1.6;
     }
 
 }
@@ -680,9 +1036,9 @@ footer {
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      NAVIGATION
-========================= -->
+===================================================== -->
 
 <nav>
 
@@ -693,23 +1049,33 @@ footer {
     <ul class="nav-links">
 
         <li>
-            <a href="#home">Home</a>
+            <a href="#home">
+                Home
+            </a>
         </li>
 
         <li>
-            <a href="#showreel">Showreel</a>
+            <a href="#showreel">
+                Showreel
+            </a>
         </li>
 
         <li>
-            <a href="#videos">Videos</a>
+            <a href="#videos">
+                Videos
+            </a>
         </li>
 
         <li>
-            <a href="#images">Images</a>
+            <a href="#images">
+                Images
+            </a>
         </li>
 
         <li>
-            <a href="#contact">Contact</a>
+            <a href="#contact">
+                Contact
+            </a>
         </li>
 
     </ul>
@@ -718,9 +1084,9 @@ footer {
 
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <header class="hero" id="home">
 
@@ -745,9 +1111,9 @@ footer {
 
 
 
-<!-- =========================
+<!-- =====================================================
      SHOWREEL
-========================= -->
+===================================================== -->
 
 <section id="showreel">
 
@@ -766,7 +1132,9 @@ footer {
             playsinline
             preload="metadata">
 
-            <source src="videos/showreel.mp4" type="video/mp4">
+            <source
+                src="videos/showreel.mp4"
+                type="video/mp4">
 
             Your browser does not support video playback.
 
@@ -778,9 +1146,9 @@ footer {
 
 
 
-<!-- =========================
-     VIDEOS
-========================= -->
+<!-- =====================================================
+     VIDEO PROJECTS
+===================================================== -->
 
 <section id="videos">
 
@@ -987,9 +1355,9 @@ footer {
 
 
 
-<!-- =========================
-     IMAGES
-========================= -->
+<!-- =====================================================
+     IMAGE GALLERY
+===================================================== -->
 
 <section id="images">
 
@@ -1006,37 +1374,72 @@ footer {
 
 
         <div class="image-card">
-            <img src="images/image1.png" alt="Photography 1" loading="lazy">
+
+            <img
+                src="images/image1.png"
+                alt="Photography 1"
+                loading="lazy">
+
         </div>
 
 
         <div class="image-card">
-            <img src="images/image2.png" alt="Photography 2" loading="lazy">
+
+            <img
+                src="images/image2.png"
+                alt="Photography 2"
+                loading="lazy">
+
         </div>
 
 
         <div class="image-card">
-            <img src="images/image3.png" alt="Photography 3" loading="lazy">
+
+            <img
+                src="images/image3.png"
+                alt="Photography 3"
+                loading="lazy">
+
         </div>
 
 
         <div class="image-card">
-            <img src="images/image4.png" alt="Photography 4" loading="lazy">
+
+            <img
+                src="images/image4.png"
+                alt="Photography 4"
+                loading="lazy">
+
         </div>
 
 
         <div class="image-card">
-            <img src="images/image5.png" alt="Photography 5" loading="lazy">
+
+            <img
+                src="images/image5.png"
+                alt="Photography 5"
+                loading="lazy">
+
         </div>
 
 
         <div class="image-card">
-            <img src="images/image6.png" alt="Photography 6" loading="lazy">
+
+            <img
+                src="images/image6.png"
+                alt="Photography 6"
+                loading="lazy">
+
         </div>
 
 
         <div class="image-card">
-            <img src="images/image7.png" alt="Photography 7" loading="lazy">
+
+            <img
+                src="images/image7.png"
+                alt="Photography 7"
+                loading="lazy">
+
         </div>
 
 
@@ -1046,11 +1449,13 @@ footer {
 
 
 
-<!-- =========================
+<!-- =====================================================
      CONTACT
-========================= -->
+===================================================== -->
 
-<section class="contact" id="contact">
+<section
+    class="contact"
+    id="contact">
 
     <div class="section-label">
         04 / CONTACT
@@ -1062,20 +1467,27 @@ footer {
     </h2>
 
     <p>
-        I'm available for video editing, videography,
-        photography and visual content projects.
+
+        I'm available for video editing,
+        videography, photography and
+        visual content projects.
         Feel free to get in touch.
+
     </p>
 
     <div class="contact-links">
 
-        <a href="mailto:bhuvanroyal2901@gmail.com">
+        <a
+            href="mailto:bhuvanroyal2901@gmail.com">
+
             Email Me
+
         </a>
 
         <a
             href="https://www.instagram.com/smartblink_visuals/"
-            target="_blank">
+            target="_blank"
+            rel="noopener noreferrer">
 
             Instagram
 
@@ -1087,9 +1499,9 @@ footer {
 
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -1105,24 +1517,44 @@ footer {
 
 
 
-<!-- =========================
+<!-- =====================================================
      IMAGE LIGHTBOX
-========================= -->
+===================================================== -->
 
-<div class="lightbox" id="lightbox">
+<div
+    class="lightbox"
+    id="lightbox">
 
-    <div class="close-lightbox" id="closeLightbox">
+    <div
+        class="close-lightbox"
+        id="closeLightbox">
+
         ×
+
     </div>
 
-    <button class="lightbox-btn prev" id="prevBtn">
+
+    <button
+        class="lightbox-btn prev"
+        id="prevBtn">
+
         ‹
+
     </button>
 
-    <img id="lightboxImage" src="" alt="">
 
-    <button class="lightbox-btn next" id="nextBtn">
+    <img
+        id="lightboxImage"
+        src=""
+        alt="">
+
+
+    <button
+        class="lightbox-btn next"
+        id="nextBtn">
+
         ›
+
     </button>
 
 </div>
@@ -1131,119 +1563,165 @@ footer {
 
 <script>
 
-/* =========================
+/* =========================================================
    VIDEO AUTOPAUSE
-========================= */
+========================================================= */
 
-const videos = document.querySelectorAll("video");
+const videos =
+    document.querySelectorAll("video");
 
 videos.forEach(video => {
 
-    video.addEventListener("play", () => {
+    video.addEventListener(
+        "play",
+        () => {
 
-        videos.forEach(otherVideo => {
+            videos.forEach(
+                otherVideo => {
 
-            if (otherVideo !== video) {
-                otherVideo.pause();
-            }
+                    if (
+                        otherVideo !== video
+                    ) {
 
-        });
+                        otherVideo.pause();
 
-    });
+                    }
+
+                }
+            );
+
+        }
+    );
 
 });
 
 
-/* =========================
+/* =========================================================
    SCROLL REVEAL
-========================= */
+========================================================= */
 
-const revealItems = document.querySelectorAll(
-    ".video-card, .image-card"
-);
+const revealItems =
+    document.querySelectorAll(
+        ".video-card, .image-card"
+    );
 
-const revealObserver = new IntersectionObserver(
+const revealObserver =
+    new IntersectionObserver(
 
-    entries => {
+        entries => {
 
-        entries.forEach(entry => {
+            entries.forEach(
+                entry => {
 
-            if (entry.isIntersecting) {
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-                entry.target.classList.add("visible");
+                        entry.target
+                            .classList
+                            .add("visible");
 
-                revealObserver.unobserve(entry.target);
+                        revealObserver
+                            .unobserve(
+                                entry.target
+                            );
 
-            }
+                    }
 
-        });
+                }
+            );
 
-    },
+        },
 
-    {
-        threshold: 0.12
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+revealItems.forEach(
+    (item, index) => {
+
+        item.style.transitionDelay =
+            `${(index % 3) * 0.12}s`;
+
+        revealObserver.observe(item);
+
     }
-
 );
 
 
-revealItems.forEach((item, index) => {
 
-    item.style.transitionDelay =
-        `${(index % 3) * 0.12}s`;
-
-    revealObserver.observe(item);
-
-});
-
-
-
-/* =========================
+/* =========================================================
    IMAGE LIGHTBOX
-========================= */
+========================================================= */
 
 const imageCards =
-    document.querySelectorAll(".image-card img");
+    document.querySelectorAll(
+        ".image-card img"
+    );
 
 const lightbox =
-    document.getElementById("lightbox");
+    document.getElementById(
+        "lightbox"
+    );
 
 const lightboxImage =
-    document.getElementById("lightboxImage");
+    document.getElementById(
+        "lightboxImage"
+    );
 
 const closeLightbox =
-    document.getElementById("closeLightbox");
+    document.getElementById(
+        "closeLightbox"
+    );
 
 const prevBtn =
-    document.getElementById("prevBtn");
+    document.getElementById(
+        "prevBtn"
+    );
 
 const nextBtn =
-    document.getElementById("nextBtn");
+    document.getElementById(
+        "nextBtn"
+    );
 
 
 let currentImage = 0;
 
 
-/* Open image */
+/* =========================================================
+   OPEN IMAGE
+========================================================= */
 
-imageCards.forEach((image, index) => {
+imageCards.forEach(
+    (image, index) => {
 
-    image.parentElement.addEventListener("click", () => {
+        image.parentElement.addEventListener(
+            "click",
+            () => {
 
-        currentImage = index;
+                currentImage = index;
 
-        showImage();
+                showImage();
 
-        lightbox.classList.add("active");
+                lightbox.classList
+                    .add("active");
 
-        document.body.style.overflow = "hidden";
+                document.body.style
+                    .overflow = "hidden";
 
-    });
+            }
+        );
 
-});
+    }
+);
 
 
-/* Show image */
+/* =========================================================
+   SHOW IMAGE
+========================================================= */
 
 function showImage() {
 
@@ -1256,14 +1734,21 @@ function showImage() {
 }
 
 
-/* Next */
+/* =========================================================
+   NEXT IMAGE
+========================================================= */
 
 function nextImage() {
 
     currentImage++;
 
-    if (currentImage >= imageCards.length) {
+    if (
+        currentImage >=
+        imageCards.length
+    ) {
+
         currentImage = 0;
+
     }
 
     showImage();
@@ -1271,14 +1756,21 @@ function nextImage() {
 }
 
 
-/* Previous */
+/* =========================================================
+   PREVIOUS IMAGE
+========================================================= */
 
 function previousImage() {
 
     currentImage--;
 
-    if (currentImage < 0) {
-        currentImage = imageCards.length - 1;
+    if (
+        currentImage < 0
+    ) {
+
+        currentImage =
+            imageCards.length - 1;
+
     }
 
     showImage();
@@ -1286,7 +1778,9 @@ function previousImage() {
 }
 
 
-/* Buttons */
+/* =========================================================
+   BUTTON CONTROLS
+========================================================= */
 
 nextBtn.addEventListener(
     "click",
@@ -1299,7 +1793,9 @@ prevBtn.addEventListener(
 );
 
 
-/* Close */
+/* =========================================================
+   CLOSE LIGHTBOX
+========================================================= */
 
 closeLightbox.addEventListener(
     "click",
@@ -1309,47 +1805,79 @@ closeLightbox.addEventListener(
 
 function closeLightboxFunction() {
 
-    lightbox.classList.remove("active");
+    lightbox.classList
+        .remove("active");
 
-    document.body.style.overflow = "";
+    document.body.style
+        .overflow = "";
 
 }
 
 
-/* Click outside image */
+/* =========================================================
+   CLICK OUTSIDE IMAGE
+========================================================= */
 
-lightbox.addEventListener("click", event => {
+lightbox.addEventListener(
+    "click",
+    event => {
 
-    if (event.target === lightbox) {
+        if (
+            event.target === lightbox
+        ) {
 
-        closeLightboxFunction();
+            closeLightboxFunction();
+
+        }
 
     }
+);
 
-});
 
+/* =========================================================
+   KEYBOARD CONTROLS
+========================================================= */
 
-/* Keyboard controls */
+document.addEventListener(
+    "keydown",
+    event => {
 
-document.addEventListener("keydown", event => {
+        if (
+            !lightbox.classList.contains(
+                "active"
+            )
+        ) {
 
-    if (!lightbox.classList.contains("active")) {
-        return;
+            return;
+
+        }
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeLightboxFunction();
+
+        }
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+
+            nextImage();
+
+        }
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            previousImage();
+
+        }
+
     }
-
-    if (event.key === "Escape") {
-        closeLightboxFunction();
-    }
-
-    if (event.key === "ArrowRight") {
-        nextImage();
-    }
-
-    if (event.key === "ArrowLeft") {
-        previousImage();
-    }
-
-});
+);
 
 </script>
 
