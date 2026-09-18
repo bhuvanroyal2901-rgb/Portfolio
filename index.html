@@ -5,16 +5,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Bhuvaneshwar Neelam | Video Editor & Videographer</title>
+<title>Bhuvaneshwar Neelam | Video Editor & Visual Content Creator</title>
 
-<meta name="description"
-content="Bhuvaneshwar Neelam — Video Editor, Videographer and Visual Content Creator.">
+<meta name="description" content="Bhuvaneshwar Neelam — Video Editor, Videographer and Visual Content Creator.">
 
 <style>
 
-/* =========================================================
+/* =========================
    RESET
-========================================================= */
+========================= */
 
 * {
     margin: 0;
@@ -27,88 +26,49 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
     background: #050505;
     color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 
-/* =========================================================
-   CUSTOM CURSOR GLOW
-========================================================= */
 
-.cursor-glow {
-    position: fixed;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(255,255,255,0.07) 0%,
-        rgba(255,255,255,0.025) 35%,
-        transparent 70%
-    );
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-}
-
-/* =========================================================
+/* =========================
    BACKGROUND
-========================================================= */
+========================= */
 
-.background {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    overflow: hidden;
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,255,255,0.035),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(255,255,255,0.025),
-            transparent 30%
-        ),
-        #050505;
-}
-
-.background::before {
+body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     width: 600px;
     height: 600px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.025);
-    filter: blur(100px);
-    top: -200px;
+    background: radial-gradient(circle, rgba(120,120,255,0.12), transparent 65%);
+    top: -250px;
     left: -200px;
-    animation: floatGlow 12s ease-in-out infinite alternate;
+    pointer-events: none;
+    animation: floatGlow 10s infinite alternate ease-in-out;
+    z-index: -2;
 }
 
-.background::after {
+body::after {
     content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.018);
-    filter: blur(100px);
-    right: -150px;
-    bottom: -150px;
-    animation: floatGlow2 15s ease-in-out infinite alternate;
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.07), transparent 65%);
+    bottom: -250px;
+    right: -200px;
+    pointer-events: none;
+    animation: floatGlow2 12s infinite alternate ease-in-out;
+    z-index: -2;
 }
 
 @keyframes floatGlow {
     from {
         transform: translate(0,0);
     }
-
     to {
-        transform: translate(180px,120px);
+        transform: translate(150px,100px);
     }
 }
 
@@ -116,121 +76,498 @@ body {
     from {
         transform: translate(0,0);
     }
-
     to {
         transform: translate(-150px,-100px);
     }
 }
 
-/* =========================================================
-   GRAIN
-========================================================= */
 
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.035;
-
-    background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-}
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* =========================
+   NAVBAR
+========================= */
 
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 72px;
-
+    padding: 20px 6%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 
-    padding: 0 7%;
-
-    background: rgba(5,5,5,0.68);
+    background: rgba(5,5,5,0.65);
     backdrop-filter: blur(18px);
 
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 
     z-index: 1000;
 }
 
 .logo {
-    font-size: 23px;
-    font-weight: 900;
-    letter-spacing: 3px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    opacity: 0.5;
 }
 
 .nav-links {
     display: flex;
+    gap: 35px;
     list-style: none;
-    gap: 32px;
 }
 
 .nav-links a {
-    position: relative;
-    color: #888;
+    color: #fff;
     text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    transition: 0.3s ease;
-}
-
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -7px;
-    width: 0;
-    height: 1px;
-    background: #fff;
-    transition: 0.3s ease;
+    font-size: 14px;
+    opacity: 0.65;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: #fff;
+    opacity: 1;
 }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
 
-/* =========================================================
+/* =========================
    HERO
-========================================================= */
+========================= */
 
 .hero {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 8% 80px;
+    position: relative;
+}
+
+.hero-small {
+    font-size: 13px;
+    letter-spacing: 5px;
+    opacity: 0.55;
+    margin-bottom: 25px;
+
+    animation: fadeUp 1s ease forwards;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 9vw, 130px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+    max-width: 1100px;
+
+    background: linear-gradient(120deg,#fff,#777);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: fadeUp 1s 0.2s ease both;
+}
+
+.hero-role {
+    margin-top: 35px;
+    font-size: 17px;
+    letter-spacing: 2px;
+    opacity: 0.65;
+
+    animation: fadeUp 1s 0.4s ease both;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 40px;
+    left: 8%;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+    opacity: 0.4;
+
+    animation: fadeUp 1s 0.8s ease both;
+}
+
+.scroll-down::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 55px;
+    background: rgba(255,255,255,0.4);
+    margin-top: 15px;
+    animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+    0%,100% {
+        transform: scaleY(0.4);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+    }
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    padding: 120px 8%;
+}
+
+.section-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    opacity: 0.4;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: clamp(35px,5vw,65px);
+    margin-bottom: 60px;
+    letter-spacing: -2px;
+}
+
+
+/* =========================
+   SHOWREEL
+========================= */
+
+.showreel-container {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    background: #0b0b0b;
+
+    box-shadow: 0 30px 100px rgba(0,0,0,0.5);
+}
+
+.showreel-container video {
+    width: 100%;
+    display: block;
+    max-height: 75vh;
+    object-fit: cover;
+}
+
+
+/* =========================
+   VIDEO GRID
+========================= */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 35px;
+}
+
+.video-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+
+    background: #0b0b0b;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition:
+        transform 0.5s ease,
+        border 0.5s ease,
+        box-shadow 0.5s ease;
+
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.video-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255,255,255,0.25);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+.video-card video {
+    width: 100%;
+    display: block;
+
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.video-card:hover video {
+    transform: scale(1.04);
+}
+
+.video-info {
+    padding: 18px 20px;
+}
+
+.video-info h3 {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.video-info p {
+    font-size: 12px;
+    opacity: 0.45;
+}
+
+
+/* =========================
+   IMAGE GALLERY
+========================= */
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+.image-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    cursor: pointer;
+
+    background: #0b0b0b;
+
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        border 0.4s ease;
+}
+
+.image-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-card:hover {
+    border-color: rgba(255,255,255,0.3);
+}
+
+.image-card img {
+    width: 100%;
+    height: 330px;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.7s ease,
+        filter 0.5s ease;
+}
+
+.image-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.75);
+}
+
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.94);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    text-align: center;
+    padding: 40px;
 
-    padding: 120px 20px 80px;
+    opacity: 0;
+    visibility: hidden;
 
-    position: relative;
+    transition: 0.35s ease;
+
+    z-index: 3000;
 }
 
-.hero-content {
-    max-width: 1100px;
-    animation: heroReveal 1.3s ease forwards;
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-@keyframes heroReveal {
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+    box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+
+    transform: scale(0.92);
+    transition: transform 0.4s ease;
+}
+
+.lightbox.active img {
+    transform: scale(1);
+}
+
+.close-lightbox {
+    position: absolute;
+
+    top: 25px;
+    right: 35px;
+
+    font-size: 35px;
+
+    color: white;
+
+    cursor: pointer;
+
+    opacity: 0.7;
+
+    transition: 0.3s;
+}
+
+.close-lightbox:hover {
+    opacity: 1;
+}
+
+.lightbox-btn {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.lightbox-btn:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+.prev {
+    left: 30px;
+}
+
+.next {
+    right: 30px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    min-height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact h2 {
+    font-size: clamp(45px,7vw,90px);
+    letter-spacing: -4px;
+    margin-bottom: 35px;
+}
+
+.contact p {
+    max-width: 550px;
+    line-height: 1.8;
+    opacity: 0.55;
+    margin-bottom: 35px;
+}
+
+.contact-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+    color: white;
+    text-decoration: none;
+
+    padding: 14px 22px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 40px 8%;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    font-size: 11px;
+
+    opacity: 0.35;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
 
     from {
         opacity: 0;
-        transform: translateY(35px);
+        transform: translateY(30px);
     }
 
     to {
@@ -240,580 +577,98 @@ nav {
 
 }
 
-.hero-small {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    color: #777;
-    margin-bottom: 25px;
-}
 
-.hero h1 {
-    font-size: clamp(48px, 9vw, 120px);
-    line-height: 0.88;
-    letter-spacing: -5px;
-    font-weight: 900;
+/* =========================
+   RESPONSIVE
+========================= */
 
-    background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #777 100%
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-    margin-top: 30px;
-
-    color: #888;
-
-    font-size: clamp(15px, 2vw, 20px);
-
-    letter-spacing: 1.5px;
-}
-
-.hero-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-
-    margin-top: 40px;
-
-    padding: 15px 26px;
-
-    border: 1px solid #333;
-    border-radius: 40px;
-
-    color: #fff;
-
-    text-decoration: none;
-
-    transition: 0.4s ease;
-
-    background: rgba(255,255,255,0.02);
-}
-
-.hero-button:hover {
-    background: #fff;
-    color: #000;
-    transform: translateY(-4px);
-}
-
-.hero-button span {
-    transition: 0.3s;
-}
-
-.hero-button:hover span {
-    transform: translateY(3px);
-}
-
-/* =========================================================
-   SCROLL INDICATOR
-========================================================= */
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    color: #555;
-
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-
-    animation: scrollPulse 2s infinite;
-}
-
-@keyframes scrollPulse {
-
-    0%,100% {
-        opacity: 0.35;
-        transform: translate(-50%,0);
-    }
-
-    50% {
-        opacity: 1;
-        transform: translate(-50%,7px);
-    }
-
-}
-
-/* =========================================================
-   SECTIONS
-========================================================= */
-
-section {
-    padding: 120px 7%;
-    position: relative;
-}
-
-.section-number {
-    font-size: 11px;
-    color: #555;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-}
-
-.section-title {
-    font-size: clamp(38px,5vw,65px);
-    letter-spacing: -2px;
-    margin-bottom: 50px;
-}
-
-/* =========================================================
-   SHOWREEL
-========================================================= */
-
-.showreel-container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-.showreel-wrapper {
-    position: relative;
-
-    border-radius: 16px;
-
-    overflow: hidden;
-
-    border: 1px solid #222;
-
-    background: #000;
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,0.5);
-}
-
-.showreel-wrapper::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    border: 1px solid rgba(255,255,255,0.04);
-
-    pointer-events: none;
-
-    z-index: 2;
-}
-
-.showreel-video {
-    width: 100%;
-    display: block;
-
-    max-height: 680px;
-
-    background: #000;
-}
-
-/* =========================================================
-   VIDEO GRID
-========================================================= */
-
-.video-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2,1fr);
-
-    gap: 30px;
-
-    max-width: 1250px;
-
-    margin: auto;
-}
-
-.video-card {
-
-    position: relative;
-
-    background: #0b0b0b;
-
-    border: 1px solid #1c1c1c;
-
-    border-radius: 14px;
-
-    overflow: hidden;
-
-    transition:
-        transform 0.5s cubic-bezier(.2,.8,.2,1),
-        border-color 0.4s,
-        box-shadow 0.5s;
-
-    opacity: 0;
-    transform: translateY(40px);
-}
-
-.video-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.video-card:hover {
-
-    transform: translateY(-8px);
-
-    border-color: #444;
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,0.5);
-}
-
-.video-card video {
-
-    width: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    display: block;
-
-    object-fit: cover;
-
-    background: #000;
-
-    transition: transform 0.7s ease;
-}
-
-.video-card:hover video {
-    transform: scale(1.025);
-}
-
-.video-info {
-
-    padding: 20px 22px 22px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-}
-
-.video-info h3 {
-
-    font-size: 17px;
-
-    font-weight: 600;
-}
-
-.video-info p {
-
-    color: #666;
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-}
-
-/* =========================================================
-   IMAGES
-========================================================= */
-
-.image-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 20px;
-}
-
-.image-placeholder {
-
-    min-height: 300px;
-
-    border: 1px dashed #2b2b2b;
-
-    border-radius: 14px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #555;
-
-    text-align: center;
-
-    transition: 0.4s;
-}
-
-.image-placeholder:hover {
-
-    border-color: #555;
-
-    background: rgba(255,255,255,0.015);
-
-}
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact {
-
-    text-align: center;
-
-    border-top:
-        1px solid rgba(255,255,255,0.07);
-}
-
-.contact h2 {
-
-    font-size:
-        clamp(40px,6vw,75px);
-
-    letter-spacing:
-        -3px;
-
-    margin-bottom:
-        25px;
-}
-
-.contact p {
-
-    color:
-        #777;
-
-    margin-bottom:
-        8px;
-}
-
-.contact-email {
-
-    font-size:
-        18px;
-
-    color:
-        #fff;
-
-    text-decoration:
-        none;
-
-    transition:
-        0.3s;
-}
-
-.contact-email:hover {
-
-    color:
-        #aaa;
-}
-
-.instagram {
-
-    display:
-        inline-block;
-
-    margin-top:
-        25px;
-
-    padding:
-        13px 25px;
-
-    border:
-        1px solid #333;
-
-    border-radius:
-        30px;
-
-    transition:
-        0.4s;
-}
-
-.instagram:hover {
-
-    background:
-        #fff;
-
-    color:
-        #000;
-
-    transform:
-        translateY(-3px);
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-
-    text-align:
-        center;
-
-    padding:
-        35px;
-
-    color:
-        #444;
-
-    font-size:
-        11px;
-
-    letter-spacing:
-        1px;
-
-    border-top:
-        1px solid #151515;
-}
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-.reveal {
-
-    opacity: 0;
-
-    transform:
-        translateY(45px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s cubic-bezier(.2,.8,.2,1);
-}
-
-.reveal.active {
-
-    opacity:
-        1;
-
-    transform:
-        translateY(0);
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 768px) {
+@media(max-width:800px){
 
     nav {
-
-        padding:
-            0 5%;
-
-        height:
-            64px;
-    }
-
-    .logo {
-
-        font-size:
-            19px;
+        padding: 18px 5%;
     }
 
     .nav-links {
-
-        gap:
-            15px;
+        gap: 15px;
     }
 
     .nav-links a {
-
-        font-size:
-            10px;
+        font-size: 11px;
     }
 
     section {
-
-        padding:
-            85px 5%;
+        padding: 90px 5%;
     }
 
     .hero {
-
-        padding:
-            100px 20px 70px;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 
     .hero h1 {
-
-        letter-spacing:
-            -3px;
-    }
-
-    .hero-small {
-
-        letter-spacing:
-            3px;
+        letter-spacing: -3px;
     }
 
     .video-grid {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            22px;
-    }
-
-    .video-info {
-
-        padding:
-            17px;
+        grid-template-columns: 1fr;
     }
 
     .image-grid {
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns: repeat(2,1fr);
     }
 
-    .image-placeholder {
-
-        min-height:
-            220px;
+    .image-card img {
+        height: 250px;
     }
 
-    .contact h2 {
-
-        letter-spacing:
-            -2px;
+    .lightbox {
+        padding: 20px;
     }
 
-    .cursor-glow {
-
-        display:
-            none;
+    .lightbox img {
+        max-width: 95%;
     }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .lightbox-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
 }
 
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media (max-width: 480px) {
+@media(max-width:500px){
 
     .nav-links {
-
-        gap:
-            9px;
+        gap: 9px;
     }
 
     .nav-links a {
-
-        font-size:
-            9px;
+        font-size: 9px;
     }
 
-    .hero h1 {
-
-        font-size:
-            46px;
+    .logo {
+        font-size: 17px;
     }
 
-    .section-title {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
 
-        font-size:
-            36px;
+    .image-card img {
+        height: 350px;
     }
 
 }
@@ -821,24 +676,18 @@ footer {
 </style>
 </head>
 
+
 <body>
 
 
-<!-- BACKGROUND -->
-
-<div class="background"></div>
-
-<div class="cursor-glow" id="cursorGlow"></div>
-
-
-<!-- ======================================================
+<!-- =========================
      NAVIGATION
-====================================================== -->
+========================= -->
 
 <nav>
 
     <div class="logo">
-        BN
+        BN<span>.</span>
     </div>
 
     <ul class="nav-links">
@@ -868,97 +717,79 @@ footer {
 </nav>
 
 
-<!-- ======================================================
+
+<!-- =========================
      HERO
-====================================================== -->
+========================= -->
 
-<section class="hero" id="home">
+<header class="hero" id="home">
 
-    <div class="hero-content">
-
-        <div class="hero-small">
-            Visual Content Creator
-        </div>
-
-        <h1>
-            BHUVANESHWAR<br>
-            NEELAM
-        </h1>
-
-        <p>
-            Video Editor • Videographer • Visual Content Creator
-        </p>
-
-        <a
-            href="#showreel"
-            class="hero-button">
-
-            Watch Showreel
-
-            <span>↓</span>
-
-        </a>
-
+    <div class="hero-small">
+        CREATIVE VISUALS
     </div>
 
-    <div class="scroll-indicator">
-        Scroll
+    <h1>
+        BHUVANESHWAR<br>
+        NEELAM
+    </h1>
+
+    <div class="hero-role">
+        Video Editor • Videographer • Visual Content Creator
     </div>
 
-</section>
+    <div class="scroll-down">
+        SCROLL TO EXPLORE
+    </div>
+
+</header>
 
 
-<!-- ======================================================
+
+<!-- =========================
      SHOWREEL
-====================================================== -->
+========================= -->
 
 <section id="showreel">
 
-    <div class="showreel-container reveal">
+    <div class="section-label">
+        01 / SHOWREEL
+    </div>
 
-        <div class="section-number">
-            01 / SHOWREEL
-        </div>
+    <h2 class="section-title">
+        Selected Work
+    </h2>
 
-        <h2 class="section-title">
-            Selected Work
-        </h2>
+    <div class="showreel-container">
 
-        <div class="showreel-wrapper">
+        <video
+            controls
+            playsinline
+            preload="metadata">
 
-            <video
-                class="showreel-video"
-                controls
-                playsinline
-                preload="metadata">
+            <source src="videos/showreel.mp4" type="video/mp4">
 
-                <source
-                    src="videos/showreel.mp4"
-                    type="video/mp4">
+            Your browser does not support video playback.
 
-                Your browser does not support the video tag.
-
-            </video>
-
-        </div>
+        </video>
 
     </div>
 
 </section>
 
 
-<!-- ======================================================
+
+<!-- =========================
      VIDEOS
-====================================================== -->
+========================= -->
 
 <section id="videos">
 
-    <div class="section-number reveal">
-        02 / VIDEO WORK
+    <div class="section-label">
+        02 / VIDEO
     </div>
 
-    <h2 class="section-title reveal">
-        Creative Edits
+    <h2 class="section-title">
+        Video Projects
     </h2>
 
 
@@ -987,12 +818,13 @@ footer {
                 </h3>
 
                 <p>
-                    Short Form
+                    Short-form social media edit
                 </p>
 
             </div>
 
         </div>
+
 
 
         <!-- VIDEO 2 -->
@@ -1017,12 +849,13 @@ footer {
                 </h3>
 
                 <p>
-                    Social Media
+                    Social media video edit
                 </p>
 
             </div>
 
         </div>
+
 
 
         <!-- VIDEO 3 -->
@@ -1047,12 +880,13 @@ footer {
                 </h3>
 
                 <p>
-                    Brand Video
+                    Brand-focused video edit
                 </p>
 
             </div>
 
         </div>
+
 
 
         <!-- VIDEO 4 -->
@@ -1077,12 +911,13 @@ footer {
                 </h3>
 
                 <p>
-                    Product Video
+                    Product-focused video
                 </p>
 
             </div>
 
         </div>
+
 
 
         <!-- VIDEO 5 -->
@@ -1103,16 +938,17 @@ footer {
             <div class="video-info">
 
                 <h3>
-                    Song Reels
+                    Songs Reel
                 </h3>
 
                 <p>
-                    Creative Edit
+                    Creative short-form edit
                 </p>
 
             </div>
 
         </div>
+
 
 
         <!-- VIDEO 6 -->
@@ -1137,7 +973,7 @@ footer {
                 </h3>
 
                 <p>
-                    Cinematic Reel
+                    Cinematic visual edit
                 </p>
 
             </div>
@@ -1150,208 +986,156 @@ footer {
 </section>
 
 
-<!-- ======================================================
+
+<!-- =========================
      IMAGES
-====================================================== -->
+========================= -->
 
 <section id="images">
 
-    <div class="section-number reveal">
+    <div class="section-label">
         03 / PHOTOGRAPHY
     </div>
 
-    <h2 class="section-title reveal">
-        Photography
+    <h2 class="section-title">
+        Selected Images
     </h2>
 
-    <div class="image-grid reveal">
 
-        <div class="image-placeholder">
-            Photography
+    <div class="image-grid">
+
+
+        <div class="image-card">
+            <img src="images/image1.png" alt="Photography 1" loading="lazy">
         </div>
 
-        <div class="image-placeholder">
-            Photography
+
+        <div class="image-card">
+            <img src="images/image2.png" alt="Photography 2" loading="lazy">
         </div>
 
-        <div class="image-placeholder">
-            Photography
+
+        <div class="image-card">
+            <img src="images/image3.png" alt="Photography 3" loading="lazy">
         </div>
+
+
+        <div class="image-card">
+            <img src="images/image4.png" alt="Photography 4" loading="lazy">
+        </div>
+
+
+        <div class="image-card">
+            <img src="images/image5.png" alt="Photography 5" loading="lazy">
+        </div>
+
+
+        <div class="image-card">
+            <img src="images/image6.png" alt="Photography 6" loading="lazy">
+        </div>
+
+
+        <div class="image-card">
+            <img src="images/image7.png" alt="Photography 7" loading="lazy">
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- ======================================================
+
+<!-- =========================
      CONTACT
-====================================================== -->
+========================= -->
 
-<section
-    class="contact reveal"
-    id="contact">
+<section class="contact" id="contact">
 
-    <div class="section-number">
+    <div class="section-label">
         04 / CONTACT
     </div>
 
     <h2>
-        Let's Work Together.
+        Let's create<br>
+        something.
     </h2>
 
     <p>
-        Available for video editing, videography
-        and visual content projects.
+        I'm available for video editing, videography,
+        photography and visual content projects.
+        Feel free to get in touch.
     </p>
 
-    <p>
+    <div class="contact-links">
+
+        <a href="mailto:bhuvanroyal2901@gmail.com">
+            Email Me
+        </a>
 
         <a
-            class="contact-email"
-            href="mailto:bhuvanroyal2901@gmail.com">
+            href="https://www.instagram.com/smartblink_visuals/"
+            target="_blank">
 
-            bhuvanroyal2901@gmail.com
+            Instagram
 
         </a>
 
-    </p>
-
-
-    <a
-        class="instagram"
-        href="https://www.instagram.com/smartblink_visuals/"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        Instagram — @smartblink_visuals
-
-    </a>
+    </div>
 
 </section>
 
 
-<!-- ======================================================
+
+<!-- =========================
      FOOTER
-====================================================== -->
+========================= -->
 
 <footer>
 
-    © 2026 Bhuvaneshwar Neelam
-    · Visual Content Creator
+    <div>
+        © 2026 Bhuvaneshwar Neelam
+    </div>
+
+    <div>
+        Video Editor • Videographer
+    </div>
 
 </footer>
 
 
-<!-- ======================================================
-     JAVASCRIPT
-====================================================== -->
+
+<!-- =========================
+     IMAGE LIGHTBOX
+========================= -->
+
+<div class="lightbox" id="lightbox">
+
+    <div class="close-lightbox" id="closeLightbox">
+        ×
+    </div>
+
+    <button class="lightbox-btn prev" id="prevBtn">
+        ‹
+    </button>
+
+    <img id="lightboxImage" src="" alt="">
+
+    <button class="lightbox-btn next" id="nextBtn">
+        ›
+    </button>
+
+</div>
+
+
 
 <script>
 
-/* =========================================================
-   CURSOR GLOW
-========================================================= */
+/* =========================
+   VIDEO AUTOPAUSE
+========================= */
 
-const cursorGlow =
-    document.getElementById("cursorGlow");
-
-document.addEventListener("mousemove", (e) => {
-
-    cursorGlow.style.left =
-        e.clientX + "px";
-
-    cursorGlow.style.top =
-        e.clientY + "px";
-
-});
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const reveals =
-    document.querySelectorAll(".reveal");
-
-const videoCards =
-    document.querySelectorAll(".video-card");
-
-
-const observer =
-    new IntersectionObserver(
-        (entries) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("active");
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
-    );
-
-
-reveals.forEach(element => {
-
-    observer.observe(element);
-
-});
-
-
-/* =========================================================
-   VIDEO CARD ANIMATION
-========================================================= */
-
-const cardObserver =
-    new IntersectionObserver(
-
-        (entries) => {
-
-            entries.forEach((entry, index) => {
-
-                if (entry.isIntersecting) {
-
-                    setTimeout(() => {
-
-                        entry.target.classList.add("show");
-
-                    }, index * 120);
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
-    );
-
-
-videoCards.forEach(card => {
-
-    cardObserver.observe(card);
-
-});
-
-
-/* =========================================================
-   PAUSE OTHER VIDEOS WHEN ONE PLAYS
-========================================================= */
-
-const videos =
-    document.querySelectorAll("video");
+const videos = document.querySelectorAll("video");
 
 videos.forEach(video => {
 
@@ -1360,14 +1144,210 @@ videos.forEach(video => {
         videos.forEach(otherVideo => {
 
             if (otherVideo !== video) {
-
                 otherVideo.pause();
-
             }
 
         });
 
     });
+
+});
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const revealItems = document.querySelectorAll(
+    ".video-card, .image-card"
+);
+
+const revealObserver = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.12
+    }
+
+);
+
+
+revealItems.forEach((item, index) => {
+
+    item.style.transitionDelay =
+        `${(index % 3) * 0.12}s`;
+
+    revealObserver.observe(item);
+
+});
+
+
+
+/* =========================
+   IMAGE LIGHTBOX
+========================= */
+
+const imageCards =
+    document.querySelectorAll(".image-card img");
+
+const lightbox =
+    document.getElementById("lightbox");
+
+const lightboxImage =
+    document.getElementById("lightboxImage");
+
+const closeLightbox =
+    document.getElementById("closeLightbox");
+
+const prevBtn =
+    document.getElementById("prevBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+
+let currentImage = 0;
+
+
+/* Open image */
+
+imageCards.forEach((image, index) => {
+
+    image.parentElement.addEventListener("click", () => {
+
+        currentImage = index;
+
+        showImage();
+
+        lightbox.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+
+/* Show image */
+
+function showImage() {
+
+    lightboxImage.src =
+        imageCards[currentImage].src;
+
+    lightboxImage.alt =
+        imageCards[currentImage].alt;
+
+}
+
+
+/* Next */
+
+function nextImage() {
+
+    currentImage++;
+
+    if (currentImage >= imageCards.length) {
+        currentImage = 0;
+    }
+
+    showImage();
+
+}
+
+
+/* Previous */
+
+function previousImage() {
+
+    currentImage--;
+
+    if (currentImage < 0) {
+        currentImage = imageCards.length - 1;
+    }
+
+    showImage();
+
+}
+
+
+/* Buttons */
+
+nextBtn.addEventListener(
+    "click",
+    nextImage
+);
+
+prevBtn.addEventListener(
+    "click",
+    previousImage
+);
+
+
+/* Close */
+
+closeLightbox.addEventListener(
+    "click",
+    closeLightboxFunction
+);
+
+
+function closeLightboxFunction() {
+
+    lightbox.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* Click outside image */
+
+lightbox.addEventListener("click", event => {
+
+    if (event.target === lightbox) {
+
+        closeLightboxFunction();
+
+    }
+
+});
+
+
+/* Keyboard controls */
+
+document.addEventListener("keydown", event => {
+
+    if (!lightbox.classList.contains("active")) {
+        return;
+    }
+
+    if (event.key === "Escape") {
+        closeLightboxFunction();
+    }
+
+    if (event.key === "ArrowRight") {
+        nextImage();
+    }
+
+    if (event.key === "ArrowLeft") {
+        previousImage();
+    }
 
 });
 
