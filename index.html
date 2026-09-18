@@ -1,15 +1,26 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Bhuvaneshwar Neelam | Video Editor & Visual Content Creator</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<meta name="description" content="Bhuvaneshwar Neelam — Video Editor, Videographer and Visual Content Creator. Explore video editing, videography, photography and creative visual work.">
+<title>
+    Bhuvaneshwar Neelam | Video Editor & Visual Content Creator
+</title>
+
+<meta
+    name="description"
+    content="Bhuvaneshwar Neelam — Video Editor, Videographer and Visual Content Creator. Explore video editing, videography, photography and creative visual work.">
+
 
 <style>
+
 /* =========================================================
    RESET
 ========================================================= */
@@ -28,7 +39,7 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #050505;
-    color: #fff;
+    color: #ffffff;
     overflow-x: hidden;
     line-height: 1.6;
 }
@@ -38,14 +49,14 @@ video {
     max-width: 100%;
 }
 
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
-}
-
 a {
     color: inherit;
     text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -60,6 +71,7 @@ body::before {
     pointer-events: none;
     z-index: 9998;
     opacity: .035;
+
     background-image:
         url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
 }
@@ -90,22 +102,26 @@ body::before {
 }
 
 @keyframes floatOne {
-    0%,100% {
-        transform: translate(0,0);
+
+    0%,
+    100% {
+        transform: translate(0, 0);
     }
 
     50% {
-        transform: translate(-80px,80px);
+        transform: translate(-80px, 80px);
     }
 }
 
 @keyframes floatTwo {
-    0%,100% {
-        transform: translate(0,0);
+
+    0%,
+    100% {
+        transform: translate(0, 0);
     }
 
     50% {
-        transform: translate(100px,-70px);
+        transform: translate(100px, -70px);
     }
 }
 
@@ -116,12 +132,23 @@ body::before {
 
 .cursor-glow {
     position: fixed;
+
     width: 300px;
     height: 300px;
+
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,.06), transparent 65%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, .06),
+            transparent 65%
+        );
+
     transform: translate(-50%, -50%);
+
     pointer-events: none;
+
     z-index: 9997;
 }
 
@@ -132,25 +159,38 @@ body::before {
 
 .nav {
     position: fixed;
+
     top: 20px;
     left: 50%;
+
     transform: translateX(-50%);
+
     width: min(1100px, calc(100% - 40px));
+
     padding: 13px 18px;
-    background: rgba(15,15,15,.78);
-    border: 1px solid rgba(255,255,255,.1);
+
+    background: rgba(15, 15, 15, .78);
+
+    border: 1px solid rgba(255, 255, 255, .1);
+
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
+
     border-radius: 18px;
+
     display: flex;
+
     align-items: center;
     justify-content: space-between;
+
     z-index: 1000;
 }
 
 .logo {
     font-size: 18px;
+
     font-weight: 900;
+
     letter-spacing: -1px;
 }
 
@@ -159,67 +199,105 @@ body::before {
 }
 
 .nav-links {
+
     display: flex;
+
     align-items: center;
+
     gap: 28px;
 }
 
 .nav-links a {
+
     position: relative;
+
     font-size: 12px;
+
     text-transform: uppercase;
+
     letter-spacing: 1px;
-    color: rgba(255,255,255,.55);
+
+    color: rgba(255, 255, 255, .55);
+
     transition: .3s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #fff;
+
+    color: #ffffff;
 }
 
 .nav-links a::after {
+
     content: "";
+
     position: absolute;
+
     left: 0;
     bottom: -6px;
+
     width: 0;
     height: 1px;
-    background: #fff;
+
+    background: #ffffff;
+
     transition: .3s ease;
 }
 
 .nav-links a.active::after {
+
     width: 100%;
 }
 
+
+/* MOBILE MENU BUTTON */
+
 .menu-btn {
+
     display: none;
+
     width: 42px;
     height: 42px;
-    border: 1px solid rgba(255,255,255,.12);
+
+    border: 1px solid rgba(255, 255, 255, .12);
+
     border-radius: 12px;
-    background: rgba(255,255,255,.04);
+
+    background: rgba(255, 255, 255, .04);
+
     cursor: pointer;
+
     align-items: center;
     justify-content: center;
+
     flex-direction: column;
+
     gap: 5px;
 }
 
 .menu-btn span {
+
     width: 18px;
     height: 1.5px;
-    background: #fff;
+
+    background: #ffffff;
+
     transition: .3s ease;
 }
 
 .menu-btn.open span:first-child {
-    transform: translateY(3px) rotate(45deg);
+
+    transform:
+        translateY(3px)
+        rotate(45deg);
 }
 
 .menu-btn.open span:last-child {
-    transform: translateY(-3px) rotate(-45deg);
+
+    transform:
+        translateY(-3px)
+        rotate(-45deg);
 }
 
 
@@ -228,40 +306,63 @@ body::before {
 ========================================================= */
 
 .hero {
+
     min-height: 100svh;
+
     padding: 150px 7% 80px;
+
     display: flex;
+
     align-items: center;
+
     position: relative;
 }
 
 .hero-content {
+
     width: 100%;
+
     max-width: 1250px;
+
     margin: auto;
 }
 
 .availability {
+
     display: inline-flex;
+
     align-items: center;
+
     gap: 9px;
+
     margin-bottom: 28px;
-    color: rgba(255,255,255,.55);
+
+    color: rgba(255, 255, 255, .55);
+
     font-size: 11px;
+
     letter-spacing: 2px;
 }
 
 .availability-dot {
+
     width: 7px;
     height: 7px;
+
     border-radius: 50%;
+
     background: #8cff9c;
-    box-shadow: 0 0 15px #8cff9c;
+
+    box-shadow:
+        0 0 15px #8cff9c;
+
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0%,100% {
+
+    0%,
+    100% {
         opacity: 1;
         transform: scale(1);
     }
@@ -273,92 +374,151 @@ body::before {
 }
 
 .hero h1 {
-    font-size: clamp(55px, 10vw, 145px);
+
+    font-size:
+        clamp(55px, 10vw, 145px);
+
     line-height: .82;
+
     letter-spacing: -7px;
+
     font-weight: 900;
+
     max-width: 1200px;
 }
 
 .hero h1 .line {
+
     display: block;
 }
 
 .hero h1 .gradient {
-    background: linear-gradient(90deg,#fff,#777);
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #777777
+        );
+
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
 .hero-description {
+
     max-width: 680px;
+
     margin-top: 40px;
+
     font-size: 17px;
+
     line-height: 1.8;
-    color: rgba(255,255,255,.58);
+
+    color: rgba(255, 255, 255, .58);
 }
 
 .hero-buttons {
+
     display: flex;
+
     gap: 12px;
+
     margin-top: 35px;
+
     flex-wrap: wrap;
 }
 
 .btn {
+
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     min-height: 48px;
+
     padding: 0 24px;
+
     border-radius: 999px;
-    border: 1px solid rgba(255,255,255,.18);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .18);
+
     font-size: 11px;
+
     letter-spacing: 1.5px;
+
     text-transform: uppercase;
+
     transition: .3s ease;
 }
 
 .btn-primary {
-    background: #fff;
-    color: #000;
+
+    background: #ffffff;
+
+    color: #000000;
 }
 
 .btn-secondary {
-    background: rgba(255,255,255,.03);
-    color: #fff;
+
+    background:
+        rgba(255, 255, 255, .03);
+
+    color: #ffffff;
 }
 
 .btn:hover {
+
     transform: translateY(-3px);
 }
 
 .hero-meta {
+
     position: absolute;
+
     right: 7%;
     bottom: 65px;
+
     text-align: right;
-    color: rgba(255,255,255,.3);
+
+    color: rgba(255, 255, 255, .3);
+
     font-size: 10px;
+
     letter-spacing: 1.5px;
 }
 
 .scroll-indicator {
+
     position: absolute;
+
     bottom: 65px;
     left: 7%;
+
     display: flex;
+
     align-items: center;
+
     gap: 10px;
-    color: rgba(255,255,255,.3);
+
+    color: rgba(255, 255, 255, .3);
+
     font-size: 10px;
+
     letter-spacing: 2px;
 }
 
 .scroll-line {
+
     width: 45px;
     height: 1px;
-    background: rgba(255,255,255,.3);
+
+    background:
+        rgba(255, 255, 255, .3);
 }
 
 
@@ -367,33 +527,56 @@ body::before {
 ========================================================= */
 
 .marquee {
+
     overflow: hidden;
-    border-top: 1px solid rgba(255,255,255,.08);
-    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, .08);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, .08);
+
     padding: 20px 0;
 }
 
 .marquee-track {
+
     display: flex;
+
     width: max-content;
-    animation: marquee 25s linear infinite;
+
+    animation:
+        marquee 25s linear infinite;
 }
 
 .marquee-item {
+
     white-space: nowrap;
+
     padding: 0 30px;
+
     font-size: 11px;
+
     letter-spacing: 3px;
-    color: rgba(255,255,255,.45);
+
+    color:
+        rgba(255, 255, 255, .45);
 }
 
 .marquee-item::after {
+
     content: "✦";
+
     margin-left: 60px;
-    color: rgba(255,255,255,.15);
+
+    color:
+        rgba(255, 255, 255, .15);
 }
 
 @keyframes marquee {
+
     from {
         transform: translateX(0);
     }
@@ -409,39 +592,61 @@ body::before {
 ========================================================= */
 
 section {
+
     padding: 130px 7%;
 }
 
 .section-inner {
+
     max-width: 1250px;
+
     margin: auto;
 }
 
 .section-heading {
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: flex-end;
+
     gap: 30px;
+
     margin-bottom: 50px;
 }
 
 .section-number {
-    color: rgba(255,255,255,.3);
+
+    color:
+        rgba(255, 255, 255, .3);
+
     font-size: 11px;
+
     letter-spacing: 2px;
+
     margin-bottom: 10px;
 }
 
 .section-title {
-    font-size: clamp(45px, 7vw, 90px);
+
+    font-size:
+        clamp(45px, 7vw, 90px);
+
     line-height: .95;
+
     letter-spacing: -4px;
 }
 
 .section-description {
+
     max-width: 380px;
-    color: rgba(255,255,255,.45);
+
+    color:
+        rgba(255, 255, 255, .45);
+
     font-size: 14px;
+
     line-height: 1.8;
 }
 
@@ -451,27 +656,46 @@ section {
 ========================================================= */
 
 .showreel-wrap {
+
     width: 100%;
+
     min-height: 400px;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     background: #0a0a0a;
-    border: 1px solid rgba(255,255,255,.1);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .1);
+
     border-radius: 24px;
+
     padding: 25px;
+
     overflow: hidden;
 }
 
 .showreel-wrap video {
+
     width: auto;
+
     height: auto;
+
     max-width: 100%;
+
     max-height: 75vh;
+
     display: block;
+
     object-fit: contain;
+
     border-radius: 14px;
-    background: #000;
+
+    background: #000000;
 }
 
 
@@ -480,60 +704,101 @@ section {
 ========================================================= */
 
 .video-grid {
+
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
     gap: 25px;
 }
 
 .video-card {
+
     position: relative;
 }
 
 .video-box {
+
     position: relative;
-    aspect-ratio: 16/10;
+
+    aspect-ratio: 16 / 10;
+
     background: #0b0b0b;
+
     border-radius: 20px;
+
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .08);
 }
 
 .video-box video {
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     display: block;
-    transition: transform .7s ease;
+
+    transition:
+        transform .7s ease;
 }
 
-.video-card:hover .video-box video {
+.video-card:hover
+.video-box video {
+
     transform: scale(1.04);
 }
 
 .video-overlay {
+
     position: absolute;
+
     inset: 0;
-    background: linear-gradient(to top,rgba(0,0,0,.75),transparent 55%);
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, .75),
+            transparent 55%
+        );
+
     pointer-events: none;
 }
 
 .video-info {
+
     padding: 17px 3px;
+
     display: flex;
+
     justify-content: space-between;
+
     gap: 20px;
 }
 
 .video-title {
+
     font-size: 16px;
+
     font-weight: 600;
 }
 
 .video-type {
-    color: rgba(255,255,255,.35);
+
+    color:
+        rgba(255, 255, 255, .35);
+
     font-size: 10px;
+
     letter-spacing: 1.5px;
+
     text-transform: uppercase;
+
     text-align: right;
 }
 
@@ -543,51 +808,90 @@ section {
 ========================================================= */
 
 .bio-section {
+
     background: #080808;
-    border-top: 1px solid rgba(255,255,255,.06);
-    border-bottom: 1px solid rgba(255,255,255,.06);
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, .06);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, .06);
 }
 
 .bio-layout {
+
     display: grid;
-    grid-template-columns: .8fr 1.2fr;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
     gap: 100px;
+
     align-items: start;
 }
 
 .bio-small {
+
     font-size: 11px;
+
     letter-spacing: 2px;
-    color: rgba(255,255,255,.35);
+
+    color:
+        rgba(255, 255, 255, .35);
 }
 
 .bio-heading {
-    font-size: clamp(35px,5vw,65px);
+
+    font-size:
+        clamp(35px, 5vw, 65px);
+
     line-height: 1;
+
     letter-spacing: -3px;
+
     margin-bottom: 30px;
 }
 
 .bio-text {
-    color: rgba(255,255,255,.55);
+
+    color:
+        rgba(255, 255, 255, .55);
+
     font-size: 16px;
+
     line-height: 1.9;
+
     margin-bottom: 20px;
 }
 
 .skills {
+
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 8px;
+
     margin-top: 35px;
 }
 
 .skill {
+
     padding: 9px 13px;
-    border: 1px solid rgba(255,255,255,.1);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .1);
+
     border-radius: 999px;
-    color: rgba(255,255,255,.55);
+
+    color:
+        rgba(255, 255, 255, .55);
+
     font-size: 10px;
+
     letter-spacing: 1px;
 }
 
@@ -597,20 +901,41 @@ section {
 ========================================================= */
 
 .image-grid {
+
     display: grid;
-    grid-template-columns: repeat(12,1fr);
+
+    grid-template-columns:
+        repeat(12, 1fr);
+
     gap: 18px;
 }
 
 .image-card {
+
     position: relative;
-    height: 430px;
+
+    min-height: 430px;
+
     border-radius: 20px;
+
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .08);
+
     cursor: pointer;
+
     background: #0a0a0a;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 }
+
+
+/* DESKTOP GALLERY LAYOUT */
 
 .image-card:nth-child(1) {
     grid-column: span 7;
@@ -634,35 +959,77 @@ section {
     grid-column: span 7;
 }
 
+.image-card:nth-child(8) {
+    grid-column: span 5;
+}
+
+.image-card:nth-child(9) {
+    grid-column: span 7;
+}
+
+
+/*
+    IMPORTANT:
+    contain = complete image stays visible.
+    Nothing gets stretched or cropped.
+*/
+
 .image-card img {
+
     width: 100%;
     height: 100%;
-    object-fit: cover;
+
     display: block;
-    transition: transform .7s ease;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    background: #0a0a0a;
+
+    transition:
+        transform .7s ease;
 }
 
 .image-card:hover img {
-    transform: scale(1.06);
+
+    transform: scale(1.04);
 }
 
 .image-overlay {
+
     position: absolute;
+
     inset: 0;
-    background: linear-gradient(to top,rgba(0,0,0,.7),transparent 55%);
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, .7),
+            transparent 55%
+        );
+
     display: flex;
+
     align-items: flex-end;
+
     padding: 20px;
+
     opacity: 0;
+
     transition: .4s ease;
 }
 
-.image-card:hover .image-overlay {
+.image-card:hover
+.image-overlay {
+
     opacity: 1;
 }
 
 .image-label {
+
     font-size: 10px;
+
     letter-spacing: 2px;
 }
 
@@ -672,57 +1039,93 @@ section {
 ========================================================= */
 
 .lightbox {
+
     position: fixed;
+
     inset: 0;
-    background: rgba(0,0,0,.94);
+
+    background:
+        rgba(0, 0, 0, .94);
+
     z-index: 5000;
+
     display: none;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 30px;
 }
 
 .lightbox.active {
+
     display: flex;
 }
 
 .lightbox img {
+
     max-width: 92vw;
+
     max-height: 88vh;
+
     object-fit: contain;
+
     border-radius: 10px;
 }
 
 .lightbox-close,
 .lightbox-prev,
 .lightbox-next {
+
     position: fixed;
-    border: 1px solid rgba(255,255,255,.15);
-    background: rgba(255,255,255,.06);
-    color: #fff;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .15);
+
+    background:
+        rgba(255, 255, 255, .06);
+
+    color: #ffffff;
+
     cursor: pointer;
+
     width: 46px;
     height: 46px;
+
     border-radius: 50%;
+
     font-size: 20px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
 }
 
 .lightbox-close {
+
     top: 25px;
     right: 25px;
 }
 
 .lightbox-prev {
+
     left: 25px;
     top: 50%;
+
+    transform:
+        translateY(-50%);
 }
 
 .lightbox-next {
+
     right: 25px;
     top: 50%;
+
+    transform:
+        translateY(-50%);
 }
 
 
@@ -731,43 +1134,69 @@ section {
 ========================================================= */
 
 .contact-section {
+
     text-align: center;
+
     padding-bottom: 100px;
 }
 
 .contact-title {
-    font-size: clamp(60px,11vw,150px);
+
+    font-size:
+        clamp(60px, 11vw, 150px);
+
     line-height: .85;
+
     letter-spacing: -7px;
+
     font-weight: 900;
 }
 
 .contact-subtitle {
+
     max-width: 560px;
+
     margin: 35px auto;
-    color: rgba(255,255,255,.5);
+
+    color:
+        rgba(255, 255, 255, .5);
+
     line-height: 1.8;
 }
 
 .contact-links {
+
     display: flex;
+
     justify-content: center;
+
     gap: 12px;
+
     flex-wrap: wrap;
 }
 
 .contact-link {
+
     padding: 13px 20px;
-    border: 1px solid rgba(255,255,255,.12);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .12);
+
     border-radius: 999px;
+
     font-size: 11px;
+
     letter-spacing: 1px;
+
     transition: .3s ease;
 }
 
 .contact-link:hover {
-    background: #fff;
-    color: #000;
+
+    background: #ffffff;
+
+    color: #000000;
 }
 
 
@@ -776,30 +1205,50 @@ section {
 ========================================================= */
 
 footer {
+
     padding: 25px 7%;
-    border-top: 1px solid rgba(255,255,255,.08);
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, .08);
+
     display: flex;
+
     justify-content: space-between;
+
     gap: 20px;
-    color: rgba(255,255,255,.25);
+
+    color:
+        rgba(255, 255, 255, .25);
+
     font-size: 10px;
+
     letter-spacing: 1px;
 }
 
 
 /* =========================================================
-   SCROLL ANIMATION
+   SCROLL REVEAL
 ========================================================= */
 
 .reveal {
+
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity .8s ease, transform .8s ease;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .reveal.visible {
+
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
 
@@ -809,117 +1258,201 @@ footer {
 
 @media (max-width: 850px) {
 
+
+    /* NAV */
+
     .nav {
-        width: calc(100% - 28px);
+
+        width:
+            calc(100% - 28px);
+
         top: 12px;
-        padding: 10px 12px;
+
+        padding:
+            10px 12px;
+
         border-radius: 15px;
     }
 
     .menu-btn {
+
         display: flex;
     }
 
     .nav-links {
+
         position: absolute;
-        top: calc(100% + 8px);
+
+        top:
+            calc(100% + 8px);
+
         left: 0;
+
         width: 100%;
+
         padding: 12px;
+
         border-radius: 15px;
-        background: rgba(10,10,10,.95);
-        border: 1px solid rgba(255,255,255,.1);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+
+        background:
+            rgba(10, 10, 10, .96);
+
+        border:
+            1px solid
+            rgba(255, 255, 255, .1);
+
+        backdrop-filter:
+            blur(20px);
+
+        -webkit-backdrop-filter:
+            blur(20px);
 
         display: flex;
+
         flex-direction: column;
+
         align-items: stretch;
+
         gap: 3px;
 
         opacity: 0;
+
         visibility: hidden;
-        transform: translateY(-8px);
+
+        transform:
+            translateY(-8px);
+
         transition: .3s ease;
     }
 
     .nav-links.open {
+
         opacity: 1;
+
         visibility: visible;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 
     .nav-links a {
+
         padding: 14px 13px;
+
         border-radius: 10px;
+
         font-size: 11px;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-        background: rgba(255,255,255,.06);
+
+        background:
+            rgba(255, 255, 255, .06);
     }
 
     .nav-links a::after {
+
         display: none;
     }
 
+
+    /* HERO */
+
     .hero {
+
         min-height: auto;
-        padding: 150px 6% 100px;
+
+        padding:
+            150px 6% 100px;
     }
 
     .hero h1 {
+
         letter-spacing: -4px;
     }
 
     .hero-description {
+
         font-size: 15px;
     }
 
     .hero-meta {
+
         display: none;
     }
 
     .scroll-indicator {
+
         display: none;
     }
 
+
+    /* SECTIONS */
+
     section {
-        padding: 90px 6%;
+
+        padding:
+            90px 6%;
     }
 
     .section-heading {
+
         flex-direction: column;
+
         align-items: flex-start;
+
         margin-bottom: 35px;
     }
 
     .section-description {
+
         max-width: 100%;
     }
 
+
+    /* VIDEOS */
+
     .video-grid {
+
         grid-template-columns: 1fr;
+
         gap: 35px;
     }
+
+
+    /* BIO */
 
     .bio-layout {
+
         grid-template-columns: 1fr;
+
         gap: 35px;
     }
 
+
+    /* IMAGES */
+
     .image-card {
-        height: 330px;
+
+        min-height: 350px;
     }
 
     .image-card:nth-child(n) {
-        grid-column: span 6;
+
+        grid-column:
+            span 6;
     }
 
+
+    /* FOOTER */
+
     footer {
-        padding: 22px 6%;
+
+        padding:
+            22px 6%;
     }
+
 }
 
 
@@ -929,270 +1462,434 @@ footer {
 
 @media (max-width: 550px) {
 
+
     html {
+
         scroll-padding-top: 85px;
     }
 
+
     body {
+
         font-size: 14px;
     }
 
+
+    /* DISABLE CURSOR ON TOUCH */
+
     .cursor-glow {
+
         display: none;
     }
 
+
+    /* BACKGROUND */
+
     .bg-orb {
+
         width: 280px;
+
         height: 280px;
+
         filter: blur(80px);
+
         opacity: .08;
     }
 
+
+    /* NAV */
+
     .nav {
+
         top: 10px;
-        width: calc(100% - 20px);
+
+        width:
+            calc(100% - 20px);
     }
 
     .logo {
+
         font-size: 16px;
     }
 
+
+    /* HERO */
+
     .hero {
-        padding: 135px 20px 75px;
+
+        padding:
+            135px 20px 75px;
     }
 
     .availability {
+
         font-size: 9px;
+
         letter-spacing: 1.5px;
+
         margin-bottom: 22px;
     }
 
     .hero h1 {
-        font-size: clamp(52px, 16vw, 82px);
+
+        font-size:
+            clamp(52px, 16vw, 82px);
+
         letter-spacing: -4px;
+
         line-height: .86;
     }
 
     .hero-description {
+
         font-size: 14px;
+
         line-height: 1.75;
+
         margin-top: 28px;
     }
 
     .hero-buttons {
+
         flex-direction: column;
+
         width: 100%;
+
         margin-top: 28px;
     }
 
     .btn {
+
         width: 100%;
+
         min-height: 52px;
     }
 
+
+    /* MARQUEE */
+
     .marquee {
+
         padding: 16px 0;
     }
 
     .marquee-item {
+
         font-size: 9px;
+
         padding: 0 18px;
     }
 
     .marquee-item::after {
+
         margin-left: 30px;
     }
 
+
+    /* SECTIONS */
+
     section {
-        padding: 75px 20px;
+
+        padding:
+            75px 20px;
     }
 
     .section-number {
+
         font-size: 9px;
     }
 
     .section-title {
-        font-size: clamp(43px,13vw,65px);
+
+        font-size:
+            clamp(43px, 13vw, 65px);
+
         letter-spacing: -3px;
     }
 
     .section-heading {
+
         gap: 18px;
+
         margin-bottom: 28px;
     }
 
     .section-description {
+
         font-size: 13px;
+
         line-height: 1.7;
     }
 
 
-    /* SHOWREEL MOBILE */
+    /* SHOWREEL */
 
     .showreel-wrap {
+
         min-height: 0;
+
         padding: 8px;
+
         border-radius: 16px;
     }
 
     .showreel-wrap video {
+
         width: 100%;
+
         max-width: 100%;
+
         max-height: none;
+
         border-radius: 10px;
     }
 
 
-    /* VIDEO MOBILE */
+    /* VIDEOS */
 
     .video-grid {
+
         gap: 30px;
     }
 
     .video-box {
-        aspect-ratio: 9/14;
+
+        aspect-ratio:
+            9 / 14;
+
         border-radius: 16px;
     }
 
     .video-box video {
+
         object-fit: contain;
-        background: #000;
+
+        background: #000000;
     }
 
     .video-info {
-        padding: 12px 2px;
+
+        padding:
+            12px 2px;
+
         flex-direction: column;
+
         gap: 5px;
     }
 
     .video-title {
+
         font-size: 15px;
     }
 
     .video-type {
+
         text-align: left;
+
         font-size: 9px;
     }
 
 
-    /* BIO MOBILE */
+    /* BIO */
 
     .bio-layout {
+
         gap: 28px;
     }
 
     .bio-heading {
+
         font-size: 40px;
+
         letter-spacing: -2px;
     }
 
     .bio-text {
+
         font-size: 14px;
+
         line-height: 1.8;
     }
 
     .skills {
+
         gap: 7px;
+
         margin-top: 25px;
     }
 
     .skill {
-        padding: 8px 11px;
+
+        padding:
+            8px 11px;
+
         font-size: 9px;
     }
 
 
-    /* IMAGE GALLERY MOBILE */
+    /* =====================================================
+       MOBILE IMAGE GALLERY
+
+       IMPORTANT:
+       Do NOT force 4:5 anymore.
+
+       Each image keeps its natural proportions.
+    ===================================================== */
 
     .image-grid {
+
         grid-template-columns: 1fr;
-        gap: 12px;
+
+        gap: 14px;
     }
 
     .image-card:nth-child(n) {
+
         grid-column: span 1;
+
+        min-height: 0;
+
         height: auto;
-        aspect-ratio: 4/5;
+
+        aspect-ratio: auto;
+    }
+
+    .image-card img {
+
+        width: 100%;
+
+        height: auto;
+
+        max-height: 600px;
+
+        object-fit: contain;
+
+        object-position: center;
+    }
+
+    .image-card {
+
+        min-height: 0;
+
+        background: #0a0a0a;
+
         border-radius: 15px;
     }
 
     .image-overlay {
+
         opacity: 1;
+
         padding: 15px;
     }
 
     .image-label {
+
         font-size: 9px;
     }
 
 
-    /* LIGHTBOX MOBILE */
+    /* LIGHTBOX */
 
     .lightbox {
+
         padding: 15px;
     }
 
     .lightbox img {
+
         max-width: 96vw;
+
         max-height: 82vh;
+
         border-radius: 7px;
     }
 
     .lightbox-close {
+
         top: 15px;
+
         right: 15px;
     }
 
     .lightbox-prev {
+
         left: 12px;
+
         top: auto;
+
         bottom: 25px;
+
+        transform: none;
     }
 
     .lightbox-next {
+
         right: 12px;
+
         top: auto;
+
         bottom: 25px;
+
+        transform: none;
     }
 
 
-    /* CONTACT MOBILE */
+    /* CONTACT */
 
     .contact-section {
+
         padding-top: 80px;
+
         padding-bottom: 75px;
     }
 
     .contact-title {
-        font-size: clamp(62px,18vw,90px);
+
+        font-size:
+            clamp(62px, 18vw, 90px);
+
         letter-spacing: -5px;
     }
 
     .contact-subtitle {
+
         font-size: 14px;
+
         margin: 25px auto;
     }
 
     .contact-links {
+
         flex-direction: column;
+
         width: 100%;
     }
 
     .contact-link {
+
         width: 100%;
-        padding: 15px 12px;
+
+        padding:
+            15px 12px;
     }
 
 
-    /* FOOTER MOBILE */
+    /* FOOTER */
 
     footer {
+
         padding: 20px;
+
         flex-direction: column;
+
         text-align: center;
+
         gap: 7px;
+
         font-size: 9px;
     }
+
 }
 
 
@@ -1203,20 +1900,26 @@ footer {
 @media (max-width: 360px) {
 
     .hero {
+
         padding-left: 16px;
+
         padding-right: 16px;
     }
 
     section {
+
         padding-left: 16px;
+
         padding-right: 16px;
     }
 
     .hero h1 {
+
         font-size: 50px;
     }
 
     .section-title {
+
         font-size: 42px;
     }
 }
@@ -1229,31 +1932,48 @@ footer {
 @media (prefers-reduced-motion: reduce) {
 
     html {
+
         scroll-behavior: auto;
     }
 
     *,
     *::before,
     *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
     }
 
     .reveal {
+
         opacity: 1;
+
         transform: none;
     }
 }
+
 </style>
+
 </head>
 
 
 <body>
 
-<!-- BACKGROUND -->
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
 <div class="bg-orb orb-one"></div>
+
 <div class="bg-orb orb-two"></div>
+
 <div class="cursor-glow" id="cursorGlow"></div>
 
 
@@ -1267,17 +1987,41 @@ footer {
         BN<span>.</span>
     </a>
 
+
     <div class="nav-links" id="navLinks">
-        <a href="#home" class="active">Home</a>
-        <a href="#showreel">Showreel</a>
-        <a href="#videos">Videos</a>
-        <a href="#images">Images</a>
-        <a href="#contact">Contact</a>
+
+        <a href="#home" class="active">
+            Home
+        </a>
+
+        <a href="#showreel">
+            Showreel
+        </a>
+
+        <a href="#videos">
+            Videos
+        </a>
+
+        <a href="#images">
+            Images
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
     </div>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu">
+
         <span></span>
+
         <span></span>
+
     </button>
 
 </nav>
@@ -1292,43 +2036,77 @@ footer {
     <div class="hero-content reveal">
 
         <div class="availability">
+
             <span class="availability-dot"></span>
+
             AVAILABLE FOR CREATIVE PROJECTS
+
         </div>
 
+
         <h1>
-            <span class="line">BHUVANESHWAR</span>
-            <span class="line gradient">NEELAM.</span>
+
+            <span class="line">
+                BHUVANESHWAR
+            </span>
+
+            <span class="line gradient">
+                NEELAM.
+            </span>
+
         </h1>
 
+
         <p class="hero-description">
-            Video Editor, Videographer & Visual Content Creator focused on
-            turning ideas into engaging visual stories — from short-form
-            reels and brand videos to photography and cinematic edits.
+
+            Video Editor, Videographer & Visual Content Creator
+            focused on turning ideas into engaging visual stories —
+            from short-form reels and brand videos to photography
+            and cinematic edits.
+
         </p>
+
 
         <div class="hero-buttons">
 
-            <a href="#videos" class="btn btn-primary">
+            <a
+                href="#videos"
+                class="btn btn-primary">
+
                 View My Work →
+
             </a>
 
-            <a href="#contact" class="btn btn-secondary">
+
+            <a
+                href="#contact"
+                class="btn btn-secondary">
+
                 Let's Connect
+
             </a>
 
         </div>
 
     </div>
 
+
     <div class="hero-meta">
-        BASED IN INDIA<br>
+
+        BASED IN INDIA
+        <br>
+
         VIDEO · PHOTO · CREATIVE
+
     </div>
 
+
     <div class="scroll-indicator">
+
         <span class="scroll-line"></span>
+
         SCROLL DOWN
+
     </div>
 
 </header>
@@ -1342,17 +2120,46 @@ footer {
 
     <div class="marquee-track">
 
-        <div class="marquee-item">VIDEO EDITING</div>
-        <div class="marquee-item">VIDEOGRAPHY</div>
-        <div class="marquee-item">PHOTOGRAPHY</div>
-        <div class="marquee-item">SHORT-FORM CONTENT</div>
-        <div class="marquee-item">BRAND VIDEOS</div>
+        <div class="marquee-item">
+            VIDEO EDITING
+        </div>
 
-        <div class="marquee-item">VIDEO EDITING</div>
-        <div class="marquee-item">VIDEOGRAPHY</div>
-        <div class="marquee-item">PHOTOGRAPHY</div>
-        <div class="marquee-item">SHORT-FORM CONTENT</div>
-        <div class="marquee-item">BRAND VIDEOS</div>
+        <div class="marquee-item">
+            VIDEOGRAPHY
+        </div>
+
+        <div class="marquee-item">
+            PHOTOGRAPHY
+        </div>
+
+        <div class="marquee-item">
+            SHORT-FORM CONTENT
+        </div>
+
+        <div class="marquee-item">
+            BRAND VIDEOS
+        </div>
+
+
+        <div class="marquee-item">
+            VIDEO EDITING
+        </div>
+
+        <div class="marquee-item">
+            VIDEOGRAPHY
+        </div>
+
+        <div class="marquee-item">
+            PHOTOGRAPHY
+        </div>
+
+        <div class="marquee-item">
+            SHORT-FORM CONTENT
+        </div>
+
+        <div class="marquee-item">
+            BRAND VIDEOS
+        </div>
 
     </div>
 
@@ -1367,16 +2174,28 @@ footer {
 
     <div class="section-inner">
 
+
         <div class="section-heading reveal">
 
             <div>
-                <div class="section-number">01 / SHOWREEL</div>
-                <h2 class="section-title">Selected Work.</h2>
+
+                <div class="section-number">
+                    01 / SHOWREEL
+                </div>
+
+                <h2 class="section-title">
+                    Selected Work.
+                </h2>
+
             </div>
 
+
             <p class="section-description">
-                A selection of my creative work across video editing,
-                storytelling, social media content and visual production.
+
+                A selection of my creative work across video
+                editing, storytelling, social media content
+                and visual production.
+
             </p>
 
         </div>
@@ -1406,16 +2225,27 @@ footer {
 
     <div class="section-inner">
 
+
         <div class="section-heading reveal">
 
             <div>
-                <div class="section-number">02 / VIDEO</div>
-                <h2 class="section-title">Video Projects.</h2>
+
+                <div class="section-number">
+                    02 / VIDEO
+                </div>
+
+                <h2 class="section-title">
+                    Video Projects.
+                </h2>
+
             </div>
 
+
             <p class="section-description">
+
                 Short-form edits, brand content, product visuals,
                 creative reels and cinematic storytelling.
+
             </p>
 
         </div>
@@ -1440,6 +2270,7 @@ footer {
                     <div class="video-overlay"></div>
 
                 </div>
+
 
                 <div class="video-info">
 
@@ -1473,6 +2304,7 @@ footer {
 
                 </div>
 
+
                 <div class="video-info">
 
                     <div class="video-title">
@@ -1504,6 +2336,7 @@ footer {
                     <div class="video-overlay"></div>
 
                 </div>
+
 
                 <div class="video-info">
 
@@ -1537,6 +2370,7 @@ footer {
 
                 </div>
 
+
                 <div class="video-info">
 
                     <div class="video-title">
@@ -1568,6 +2402,7 @@ footer {
                     <div class="video-overlay"></div>
 
                 </div>
+
 
                 <div class="video-info">
 
@@ -1601,6 +2436,7 @@ footer {
 
                 </div>
 
+
                 <div class="video-info">
 
                     <div class="video-title">
@@ -1624,14 +2460,17 @@ footer {
 
 
 <!-- =====================================================
-     BIO
+     ABOUT / BIO
 ===================================================== -->
 
-<section class="bio-section" id="bio">
+<section
+    class="bio-section"
+    id="bio">
 
     <div class="section-inner">
 
         <div class="bio-layout reveal">
+
 
             <div>
 
@@ -1645,32 +2484,66 @@ footer {
             <div>
 
                 <h2 class="bio-heading">
-                    Creating visuals that look good, feel right and tell a story.
+
+                    Creating visuals that look good,
+                    feel right and tell a story.
+
                 </h2>
 
-                <p class="bio-text">
-                    I'm Bhuvaneshwar Neelam, a Video Editor, Videographer
-                    and Visual Content Creator passionate about creating
-                    engaging visual content.
-                </p>
 
                 <p class="bio-text">
-                    I work across short-form reels, brand videos,
-                    photography and social media content, combining
-                    creative direction, clean editing and visual
-                    storytelling to bring ideas to life.
+
+                    I'm Bhuvaneshwar Neelam, a Video Editor,
+                    Videographer and Visual Content Creator
+                    passionate about creating engaging
+                    visual content.
+
                 </p>
+
+
+                <p class="bio-text">
+
+                    I work across short-form reels, brand videos,
+                    photography and social media content,
+                    combining creative direction, clean editing
+                    and visual storytelling to bring ideas to life.
+
+                </p>
+
 
                 <div class="skills">
 
-                    <span class="skill">VIDEO EDITING</span>
-                    <span class="skill">VIDEOGRAPHY</span>
-                    <span class="skill">PHOTOGRAPHY</span>
-                    <span class="skill">CAPCUT</span>
-                    <span class="skill">LIGHTROOM</span>
-                    <span class="skill">PREMIERE PRO</span>
-                    <span class="skill">PHOTOSHOP</span>
-                    <span class="skill">MOTION GRAPHICS</span>
+                    <span class="skill">
+                        VIDEO EDITING
+                    </span>
+
+                    <span class="skill">
+                        VIDEOGRAPHY
+                    </span>
+
+                    <span class="skill">
+                        PHOTOGRAPHY
+                    </span>
+
+                    <span class="skill">
+                        CAPCUT
+                    </span>
+
+                    <span class="skill">
+                        LIGHTROOM
+                    </span>
+
+                    <span class="skill">
+                        PREMIERE PRO
+                    </span>
+
+                    <span class="skill">
+                        PHOTOSHOP
+                    </span>
+
+                    <span class="skill">
+                        MOTION GRAPHICS
+                    </span>
 
                 </div>
 
@@ -1691,136 +2564,297 @@ footer {
 
     <div class="section-inner">
 
+
         <div class="section-heading reveal">
 
             <div>
-                <div class="section-number">04 / PHOTOGRAPHY</div>
-                <h2 class="section-title">Visual Stories.</h2>
+
+                <div class="section-number">
+                    04 / PHOTOGRAPHY
+                </div>
+
+                <h2 class="section-title">
+                    Visual Stories.
+                </h2>
+
             </div>
 
+
             <p class="section-description">
-                A collection of frames captured and edited with
-                a focus on composition, color and atmosphere.
+
+                A collection of frames captured and edited
+                with a focus on composition, color and atmosphere.
+
             </p>
 
         </div>
 
 
-       ```html
-<div class="image-grid">
+        <div class="image-grid">
 
-    <div class="image-card reveal" data-index="0">
-        <img src="images/image1.png" alt="Photography frame 1">
-        <div class="image-overlay">
-            <div class="image-label">01 / FRAME</div>
+
+            <!-- IMAGE 1 -->
+
+            <div
+                class="image-card reveal"
+                data-index="0">
+
+                <img
+                    src="images/image1.png"
+                    alt="Photography frame 1">
+
+                <div class="image-overlay">
+
+                    <div class="image-label">
+                        01 / FRAME
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE 2 -->
+
+            <div
+                class="image-card reveal"
+                data-index="1">
+
+                <img
+                    src="images/image2.png"
+                    alt="Photography frame 2">
+
+                <div class="image-overlay">
+
+                    <div class="image-label">
+                        02 / FRAME
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE 3 -->
+
+            <div
+                class="image-card reveal"
+                data-index="2">
+
+                <img
+                    src="images/image3.png"
+                    alt="Photography frame 3">
+
+                <div class="image-overlay">
+
+                    <div class="image-label">
+                        03 / FRAME
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE 4 -->
+
+            <div
+                class="image-card reveal"
+                data-index="3">
+
+                <img
+                    src="images/image4.png"
+                    alt="Photography frame 4">
+
+                <div class="image-overlay">
+
+                    <div class="image-label">
+                        04 / FRAME
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE 5 -->
+
+            <div
+                class="image-card reveal"
+                data-index="4">
+
+                <img
+                    src="images/image5.png"
+                    alt="Photography frame 5">
+
+                <div class="image-overlay">
+
+                    <div class="image-label">
+                        05 / FRAME
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE 6 -->
+
+            <div
+                class="image-card reveal"
+                data-index="5">
+
+                <img
+                    src="images/image6.png"
+                    alt="Photography frame 6">
+
+                <div class="image-overlay">
+
+                    <div class="image-label">
+                        06 / FRAME
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE 7 -->
+
+            <div
+                class="image-card reveal"
+                data-index="6">
+
+                <img
+                    src="images/image7.png"
+                    alt="Photography frame 7">
+
+                <div class="image-overlay">
+
+                    <div class="image-label">
+                        07 / FRAME
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE 8 -->
+
+            <div
+                class="image-card reveal"
+                data-index="7">
+
+                <img
+                    src="images/image8.jpeg"
+                    alt="Photography frame 8">
+
+                <div class="image-overlay">
+
+                    <div class="image-label">
+                        08 / FRAME
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE 9 -->
+
+            <div
+                class="image-card reveal"
+                data-index="8">
+
+                <img
+                    src="images/image9.jpeg"
+                    alt="Photography frame 9">
+
+                <div class="image-overlay">
+
+                    <div class="image-label">
+                        09 / FRAME
+                    </div>
+
+                </div>
+
+            </div>
+
+
         </div>
+
     </div>
 
-    <div class="image-card reveal" data-index="1">
-        <img src="images/image2.png" alt="Photography frame 2">
-        <div class="image-overlay">
-            <div class="image-label">02 / FRAME</div>
-        </div>
-    </div>
-
-    <div class="image-card reveal" data-index="2">
-        <img src="images/image3.png" alt="Photography frame 3">
-        <div class="image-overlay">
-            <div class="image-label">03 / FRAME</div>
-        </div>
-    </div>
-
-    <div class="image-card reveal" data-index="3">
-        <img src="images/image4.png" alt="Photography frame 4">
-        <div class="image-overlay">
-            <div class="image-label">04 / FRAME</div>
-        </div>
-    </div>
-
-    <div class="image-card reveal" data-index="4">
-        <img src="images/image5.png" alt="Photography frame 5">
-        <div class="image-overlay">
-            <div class="image-label">05 / FRAME</div>
-        </div>
-    </div>
-
-    <div class="image-card reveal" data-index="5">
-        <img src="images/image6.png" alt="Photography frame 6">
-        <div class="image-overlay">
-            <div class="image-label">06 / FRAME</div>
-        </div>
-    </div>
-
-    <div class="image-card reveal" data-index="6">
-        <img src="images/image7.png" alt="Photography frame 7">
-        <div class="image-overlay">
-            <div class="image-label">07 / FRAME</div>
-        </div>
-    </div>
-
-    <div class="image-card reveal" data-index="7">
-        <img src="images/image8.jpeg" alt="Photography frame 8">
-        <div class="image-overlay">
-            <div class="image-label">08 / FRAME</div>
-        </div>
-    </div>
-
-    <div class="image-card reveal" data-index="8">
-        <img src="images/image9.jpeg" alt="Photography frame 9">
-        <div class="image-overlay">
-            <div class="image-label">09 / FRAME</div>
-        </div>
-    </div>
-
-</div>
-```
-
+</section>
 
 
 <!-- =====================================================
      CONTACT
 ===================================================== -->
 
-<section class="contact-section" id="contact">
+<section
+    class="contact-section"
+    id="contact">
 
     <div class="section-inner reveal">
+
 
         <div class="section-number">
             05 / CONTACT
         </div>
 
+
         <h2 class="contact-title">
-            LET'S<br>CREATE.
+
+            LET'S
+            <br>
+            CREATE.
+
         </h2>
 
+
         <p class="contact-subtitle">
+
             Have a project, collaboration or creative idea?
             Let's turn it into something worth watching.
+
         </p>
 
+
         <div class="contact-links">
+
 
             <a
                 href="mailto:bhuvanroyal2901@gmail.com"
                 class="contact-link">
+
                 EMAIL ME
+
             </a>
+
 
             <a
                 href="https://www.instagram.com/smartblink_visuals/"
                 target="_blank"
                 rel="noopener"
                 class="contact-link">
+
                 INSTAGRAM
+
             </a>
+
 
             <a
                 href="https://bhuvanroyal2901-rgb.github.io/myPortfolio/"
                 target="_blank"
                 rel="noopener"
                 class="contact-link">
+
                 PORTFOLIO
+
             </a>
+
 
         </div>
 
@@ -1850,20 +2884,44 @@ footer {
      LIGHTBOX
 ===================================================== -->
 
-<div class="lightbox" id="lightbox">
+<div
+    class="lightbox"
+    id="lightbox">
 
-    <button class="lightbox-close" id="lightboxClose">
+
+    <button
+        class="lightbox-close"
+        id="lightboxClose"
+        aria-label="Close image">
+
         ×
+
     </button>
 
-    <button class="lightbox-prev" id="lightboxPrev">
+
+    <button
+        class="lightbox-prev"
+        id="lightboxPrev"
+        aria-label="Previous image">
+
         ‹
+
     </button>
 
-    <img id="lightboxImage" src="" alt="">
 
-    <button class="lightbox-next" id="lightboxNext">
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Selected photography">
+
+
+    <button
+        class="lightbox-next"
+        id="lightboxNext"
+        aria-label="Next image">
+
         ›
+
     </button>
 
 </div>
@@ -1871,49 +2929,68 @@ footer {
 
 <script>
 
+
 /* =========================================================
    MOBILE MENU
 ========================================================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
 
 menuBtn.addEventListener("click", () => {
 
     menuBtn.classList.toggle("open");
+
     navLinks.classList.toggle("open");
 
 });
 
 
-/* Close mobile menu after clicking */
+/* CLOSE MENU AFTER CLICK */
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
 
-    link.addEventListener("click", () => {
+        link.addEventListener("click", () => {
 
-        menuBtn.classList.remove("open");
-        navLinks.classList.remove("open");
+            menuBtn.classList.remove("open");
+
+            navLinks.classList.remove("open");
+
+        });
 
     });
-
-});
 
 
 /* =========================================================
    CURSOR GLOW
 ========================================================= */
 
-const cursorGlow = document.getElementById("cursorGlow");
+const cursorGlow =
+    document.getElementById("cursorGlow");
 
-if (window.matchMedia("(pointer:fine)").matches) {
 
-    document.addEventListener("mousemove", e => {
+if (
+    window.matchMedia("(pointer:fine)").matches
+) {
 
-        cursorGlow.style.left = e.clientX + "px";
-        cursorGlow.style.top = e.clientY + "px";
+    document.addEventListener(
+        "mousemove",
+        e => {
 
-    });
+            cursorGlow.style.left =
+                e.clientX + "px";
+
+            cursorGlow.style.top =
+                e.clientY + "px";
+
+        }
+    );
 
 }
 
@@ -1922,21 +2999,28 @@ if (window.matchMedia("(pointer:fine)").matches) {
    AUTO PAUSE OTHER VIDEOS
 ========================================================= */
 
-const videos = document.querySelectorAll("video");
+const videos =
+    document.querySelectorAll("video");
+
 
 videos.forEach(video => {
 
-    video.addEventListener("play", () => {
+    video.addEventListener(
+        "play",
+        () => {
 
-        videos.forEach(otherVideo => {
+            videos.forEach(otherVideo => {
 
-            if (otherVideo !== video) {
-                otherVideo.pause();
-            }
+                if (otherVideo !== video) {
 
-        });
+                    otherVideo.pause();
 
-    });
+                }
+
+            });
+
+        }
+    );
 
 });
 
@@ -1945,28 +3029,34 @@ videos.forEach(video => {
    SCROLL REVEAL
 ========================================================= */
 
-const revealElements = document.querySelectorAll(".reveal");
+const revealElements =
+    document.querySelectorAll(".reveal");
 
-const revealObserver = new IntersectionObserver(
-    entries => {
 
-        entries.forEach(entry => {
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
 
-            if (entry.isIntersecting) {
+            entries.forEach(entry => {
 
-                entry.target.classList.add("visible");
+                if (entry.isIntersecting) {
 
-                revealObserver.unobserve(entry.target);
+                    entry.target
+                        .classList
+                        .add("visible");
 
-            }
+                    revealObserver
+                        .unobserve(entry.target);
 
-        });
+                }
 
-    },
-    {
-        threshold: 0.12
-    }
-);
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
 
 
 revealElements.forEach(element => {
@@ -1977,87 +3067,154 @@ revealElements.forEach(element => {
 
 
 /* =========================================================
-   ACTIVE NAV
-   NOTE: BIO IS INTENTIONALLY EXCLUDED
+   ACTIVE NAVIGATION
+   BIO IS INTENTIONALLY NOT INCLUDED
 ========================================================= */
 
-const navItems = document.querySelectorAll(".nav-links a");
+const navItems =
+    document.querySelectorAll(
+        ".nav-links a"
+    );
+
 
 const navSections = [
+
     document.getElementById("home"),
+
     document.getElementById("showreel"),
+
     document.getElementById("videos"),
+
     document.getElementById("images"),
+
     document.getElementById("contact")
+
 ];
 
-const navObserver = new IntersectionObserver(
-    entries => {
 
-        entries.forEach(entry => {
+const navObserver =
+    new IntersectionObserver(
+        entries => {
 
-            if (entry.isIntersecting) {
+            entries.forEach(entry => {
 
-                navItems.forEach(item => {
-                    item.classList.remove("active");
-                });
+                if (entry.isIntersecting) {
 
-                const active = document.querySelector(
-                    `.nav-links a[href="#${entry.target.id}"]`
-                );
+                    navItems.forEach(item => {
 
-                if (active) {
-                    active.classList.add("active");
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                    const active =
+                        document.querySelector(
+                            `.nav-links a[href="#${entry.target.id}"]`
+                        );
+
+
+                    if (active) {
+
+                        active.classList.add(
+                            "active"
+                        );
+
+                    }
+
                 }
 
-            }
+            });
 
-        });
+        },
+        {
+            rootMargin:
+                "-40% 0px -50% 0px",
 
-    },
-    {
-        rootMargin: "-40% 0px -50% 0px",
-        threshold: 0
-    }
-);
+            threshold: 0
+        }
+    );
 
 
 navSections.forEach(section => {
 
     if (section) {
+
         navObserver.observe(section);
+
     }
 
 });
 
 
 /* =========================================================
-   LIGHTBOX
+   IMAGE LIGHTBOX
 ========================================================= */
 
-const imageCards = document.querySelectorAll(".image-card");
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const lightboxClose = document.getElementById("lightboxClose");
-const lightboxPrev = document.getElementById("lightboxPrev");
-const lightboxNext = document.getElementById("lightboxNext");
+const imageCards =
+    document.querySelectorAll(
+        ".image-card"
+    );
+
+
+const lightbox =
+    document.getElementById(
+        "lightbox"
+    );
+
+
+const lightboxImage =
+    document.getElementById(
+        "lightboxImage"
+    );
+
+
+const lightboxClose =
+    document.getElementById(
+        "lightboxClose"
+    );
+
+
+const lightboxPrev =
+    document.getElementById(
+        "lightboxPrev"
+    );
+
+
+const lightboxNext =
+    document.getElementById(
+        "lightboxNext"
+    );
+
 
 let currentImage = 0;
 
-const imageSources = Array.from(imageCards).map(card => {
 
-    return card.querySelector("img").src;
+const imageSources =
+    Array.from(imageCards).map(
+        card => {
 
-});
+            return card
+                .querySelector("img")
+                .src;
+
+        }
+    );
 
 
 function showImage(index) {
 
     currentImage =
-        (index + imageSources.length) %
+        (
+            index +
+            imageSources.length
+        ) %
         imageSources.length;
 
-    lightboxImage.src = imageSources[currentImage];
+
+    lightboxImage.src =
+        imageSources[currentImage];
 
 }
 
@@ -2066,119 +3223,205 @@ function openLightbox(index) {
 
     showImage(index);
 
-    lightbox.classList.add("active");
+    lightbox.classList.add(
+        "active"
+    );
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow =
+        "hidden";
 
 }
 
 
 function closeLightbox() {
 
-    lightbox.classList.remove("active");
+    lightbox.classList.remove(
+        "active"
+    );
 
-    document.body.style.overflow = "";
+    document.body.style.overflow =
+        "";
 
 }
 
 
-imageCards.forEach((card, index) => {
+imageCards.forEach(
+    (card, index) => {
 
-    card.addEventListener("click", () => {
+        card.addEventListener(
+            "click",
+            () => {
 
-        openLightbox(index);
+                openLightbox(index);
 
-    });
+            }
+        );
 
-});
-
-
-lightboxClose.addEventListener("click", closeLightbox);
-
-
-lightboxPrev.addEventListener("click", () => {
-
-    showImage(currentImage - 1);
-
-});
-
-
-lightboxNext.addEventListener("click", () => {
-
-    showImage(currentImage + 1);
-
-});
-
-
-lightbox.addEventListener("click", e => {
-
-    if (e.target === lightbox) {
-        closeLightbox();
     }
+);
 
-});
+
+lightboxClose.addEventListener(
+    "click",
+    closeLightbox
+);
+
+
+lightboxPrev.addEventListener(
+    "click",
+    () => {
+
+        showImage(
+            currentImage - 1
+        );
+
+    }
+);
+
+
+lightboxNext.addEventListener(
+    "click",
+    () => {
+
+        showImage(
+            currentImage + 1
+        );
+
+    }
+);
+
+
+lightbox.addEventListener(
+    "click",
+    e => {
+
+        if (e.target === lightbox) {
+
+            closeLightbox();
+
+        }
+
+    }
+);
 
 
 /* =========================================================
    KEYBOARD CONTROLS
 ========================================================= */
 
-document.addEventListener("keydown", e => {
+document.addEventListener(
+    "keydown",
+    e => {
 
-    if (!lightbox.classList.contains("active")) {
-        return;
+        if (
+            !lightbox.classList.contains(
+                "active"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        if (e.key === "Escape") {
+
+            closeLightbox();
+
+        }
+
+
+        if (e.key === "ArrowRight") {
+
+            showImage(
+                currentImage + 1
+            );
+
+        }
+
+
+        if (e.key === "ArrowLeft") {
+
+            showImage(
+                currentImage - 1
+            );
+
+        }
+
     }
-
-    if (e.key === "Escape") {
-        closeLightbox();
-    }
-
-    if (e.key === "ArrowRight") {
-        showImage(currentImage + 1);
-    }
-
-    if (e.key === "ArrowLeft") {
-        showImage(currentImage - 1);
-    }
-
-});
+);
 
 
 /* =========================================================
-   SWIPE SUPPORT FOR MOBILE LIGHTBOX
+   MOBILE SWIPE
 ========================================================= */
 
 let touchStartX = 0;
+
 let touchEndX = 0;
 
-lightbox.addEventListener("touchstart", e => {
 
-    touchStartX = e.changedTouches[0].screenX;
+lightbox.addEventListener(
+    "touchstart",
+    e => {
 
-}, { passive: true });
+        touchStartX =
+            e.changedTouches[0]
+            .screenX;
 
-
-lightbox.addEventListener("touchend", e => {
-
-    touchEndX = e.changedTouches[0].screenX;
-
-    const difference = touchEndX - touchStartX;
-
-    if (Math.abs(difference) < 50) {
-        return;
+    },
+    {
+        passive: true
     }
+);
 
-    if (difference < 0) {
-        showImage(currentImage + 1);
-    } else {
-        showImage(currentImage - 1);
+
+lightbox.addEventListener(
+    "touchend",
+    e => {
+
+        touchEndX =
+            e.changedTouches[0]
+            .screenX;
+
+
+        const difference =
+            touchEndX - touchStartX;
+
+
+        if (
+            Math.abs(difference) < 50
+        ) {
+
+            return;
+
+        }
+
+
+        if (difference < 0) {
+
+            showImage(
+                currentImage + 1
+            );
+
+        } else {
+
+            showImage(
+                currentImage - 1
+            );
+
+        }
+
+    },
+    {
+        passive: true
     }
-
-}, { passive: true });
+);
 
 
 </script>
 
 </body>
+
 </html>
 ```
