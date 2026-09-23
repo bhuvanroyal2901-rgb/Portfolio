@@ -1,37 +1,22 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Bhuvaneshwar Neelam | Video Editor & Visual Content Creator</title>
 
-    <meta
-        name="description"
-        content="Bhuvaneshwar Neelam — Video Editor, Videographer and Visual Content Creator specializing in reels, brand videos, photography and visual storytelling."
-    >
+    <meta name="description"
+        content="Bhuvaneshwar Neelam — Video Editor, Videographer and Visual Content Creator specializing in reels, brand videos, photography and visual storytelling.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <meta name="theme-color" content="#050505">
 
     <style>
 
-        /* =========================================
+        /* =====================================================
            RESET
-        ========================================= */
+        ===================================================== */
 
         * {
             margin: 0;
@@ -44,23 +29,11 @@
         }
 
         body {
-            font-family: "Inter", sans-serif;
             background: #050505;
             color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.035;
-
-            background-image:
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
         }
 
         a {
@@ -68,82 +41,101 @@
             text-decoration: none;
         }
 
+        button {
+            font-family: inherit;
+        }
+
         img,
         video {
             max-width: 100%;
         }
 
-        button {
-            font-family: inherit;
-        }
 
-        ::selection {
-            background: #ffffff;
-            color: #000000;
-        }
-
-
-        /* =========================================
+        /* =====================================================
            BACKGROUND
-        ========================================= */
+        ===================================================== */
 
-        .ambient {
+        body::before {
+            content: "";
             position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
 
-            width: 600px;
-            height: 600px;
+            background:
+                radial-gradient(
+                    circle at 20% 10%,
+                    rgba(255,255,255,0.055),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 80% 60%,
+                    rgba(255,255,255,0.035),
+                    transparent 30%
+                );
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9998;
+
+            opacity: 0.025;
+
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+        }
+
+
+        /* =====================================================
+           CUSTOM CURSOR
+        ===================================================== */
+
+        .cursor-glow {
+            position: fixed;
+            width: 280px;
+            height: 280px;
 
             border-radius: 50%;
 
-            background: rgba(255,255,255,0.035);
-
-            filter: blur(120px);
-
-            top: -200px;
-            right: -200px;
-
             pointer-events: none;
+            z-index: 9997;
 
-            z-index: -1;
-        }
+            background: radial-gradient(
+                circle,
+                rgba(255,255,255,0.045),
+                transparent 65%
+            );
 
-        .ambient.two {
-            width: 500px;
-            height: 500px;
-
-            top: 45%;
-            left: -250px;
-
-            background: rgba(120,120,255,0.025);
+            transform: translate(-50%, -50%);
         }
 
 
-        /* =========================================
+        /* =====================================================
            NAVIGATION
-        ========================================= */
+        ===================================================== */
 
         nav {
             position: fixed;
-
             top: 18px;
             left: 50%;
-
             transform: translateX(-50%);
 
-            width: min(1180px, calc(100% - 40px));
+            width: min(1120px, calc(100% - 32px));
+
+            padding: 12px 18px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            padding: 14px 18px;
-
             background: rgba(10,10,10,0.72);
+            border: 1px solid rgba(255,255,255,0.09);
 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-
-            border: 1px solid rgba(255,255,255,0.09);
 
             border-radius: 18px;
 
@@ -154,13 +146,9 @@
         }
 
         .logo {
-            font-family: "Space Grotesk", sans-serif;
-
-            font-size: 19px;
-
-            font-weight: 700;
-
-            letter-spacing: -0.5px;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
 
         .logo span {
@@ -169,452 +157,485 @@
 
         .nav-links {
             display: flex;
-
             align-items: center;
-
-            gap: 26px;
+            gap: 8px;
         }
 
         .nav-links a {
             position: relative;
 
-            font-size: 13px;
+            padding: 9px 12px;
 
             color: rgba(255,255,255,0.62);
+
+            font-size: 13px;
+            font-weight: 600;
 
             transition: 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: #ffffff;
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
         }
 
         .nav-links a::after {
             content: "";
 
             position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 3px;
 
-            left: 0;
-            bottom: -6px;
-
-            width: 0;
             height: 1px;
 
-            background: #ffffff;
+            background: #fff;
 
-            transition: 0.3s ease;
+            transform: scaleX(0);
+            transform-origin: center;
+
+            transition: transform 0.3s ease;
         }
 
         .nav-links a:hover::after,
         .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: #ffffff;
+            transform: scaleX(1);
         }
 
         .menu-btn {
             display: none;
 
-            border: 0;
+            width: 42px;
+            height: 42px;
 
-            background: none;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.04);
 
-            color: #ffffff;
+            color: #fff;
 
-            font-size: 24px;
+            border-radius: 12px;
+
+            font-size: 20px;
 
             cursor: pointer;
         }
 
 
-        /* =========================================
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+            width: min(1200px, calc(100% - 40px));
+            margin: auto;
+        }
+
+
+        /* =====================================================
            HERO
-        ========================================= */
+        ===================================================== */
 
         .hero {
             min-height: 100vh;
 
-            padding: 150px 7vw 80px;
-
             display: flex;
-
             flex-direction: column;
-
             justify-content: center;
+
+            padding-top: 120px;
+            padding-bottom: 80px;
 
             position: relative;
         }
 
-        .hero-tag {
-            display: inline-flex;
-
+        .hero-small {
+            display: flex;
             align-items: center;
-
             gap: 10px;
 
-            color: rgba(255,255,255,0.58);
+            margin-bottom: 25px;
 
             font-size: 12px;
-
             text-transform: uppercase;
-
             letter-spacing: 2px;
 
-            margin-bottom: 24px;
-
-            opacity: 0;
-
-            animation:
-                fadeUp 0.8s ease forwards;
+            color: rgba(255,255,255,0.55);
         }
 
-        .hero-tag::before {
-            content: "";
-
-            width: 7px;
-            height: 7px;
-
-            background: #ffffff;
+        .status-dot {
+            width: 8px;
+            height: 8px;
 
             border-radius: 50%;
 
-            box-shadow:
-                0 0 15px rgba(255,255,255,0.8);
+            background: #fff;
+
+            box-shadow: 0 0 18px rgba(255,255,255,0.7);
+
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%,100% {
+                opacity: 0.45;
+                transform: scale(0.9);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
         }
 
         .hero h1 {
-            max-width: 1000px;
+            max-width: 1050px;
 
-            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(48px, 9vw, 125px);
 
-            font-size: clamp(52px, 9vw, 125px);
+            line-height: 0.9;
 
-            line-height: 0.88;
+            letter-spacing: -5px;
 
-            letter-spacing: -6px;
+            font-weight: 900;
 
-            margin-bottom: 30px;
+            text-transform: uppercase;
 
-            opacity: 0;
+            background: linear-gradient(
+                120deg,
+                #ffffff,
+                #8e8e8e,
+                #ffffff
+            );
 
-            animation:
-                fadeUp 0.9s ease 0.1s forwards;
-        }
+            background-size: 200% auto;
 
-        .hero h1 span {
-            display: block;
+            -webkit-background-clip: text;
+            background-clip: text;
 
-            color: rgba(255,255,255,0.22);
-        }
-
-        .hero-description {
-            max-width: 620px;
-
-            font-size: 17px;
-
-            line-height: 1.8;
-
-            color: rgba(255,255,255,0.58);
-
-            opacity: 0;
+            color: transparent;
 
             animation:
-                fadeUp 0.9s ease 0.25s forwards;
+                heroReveal 1.1s ease forwards,
+                shine 7s linear infinite;
+        }
+
+        @keyframes heroReveal {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .hero-subtitle {
+            margin-top: 30px;
+
+            font-size: clamp(17px, 2vw, 23px);
+
+            color: rgba(255,255,255,0.72);
+
+            max-width: 720px;
         }
 
         .hero-buttons {
             display: flex;
-
             flex-wrap: wrap;
 
-            gap: 14px;
+            gap: 12px;
 
-            margin-top: 34px;
-
-            opacity: 0;
-
-            animation:
-                fadeUp 0.9s ease 0.4s forwards;
+            margin-top: 38px;
         }
 
         .btn {
             display: inline-flex;
-
             align-items: center;
-
             justify-content: center;
 
-            padding: 13px 21px;
+            min-height: 48px;
 
-            border-radius: 100px;
+            padding: 0 22px;
+
+            border-radius: 999px;
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            background: rgba(255,255,255,0.05);
+
+            color: #fff;
 
             font-size: 13px;
+            font-weight: 700;
 
-            font-weight: 600;
-
-            transition: 0.3s ease;
+            transition: 0.35s ease;
         }
 
-        .btn-primary {
-            background: #ffffff;
-
-            color: #000000;
+        .btn.primary {
+            background: #fff;
+            color: #050505;
         }
 
-        .btn-primary:hover {
+        .btn:hover {
             transform: translateY(-3px);
-
-            box-shadow:
-                0 12px 35px rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.35);
         }
 
-        .btn-secondary {
-            border:
-                1px solid rgba(255,255,255,0.15);
-
-            color: #ffffff;
-        }
-
-        .btn-secondary:hover {
-            background:
-                rgba(255,255,255,0.07);
-
-            transform: translateY(-3px);
-        }
-
-        .scroll-indicator {
+        .hero-scroll {
             position: absolute;
 
             bottom: 35px;
-            left: 7vw;
-
-            color:
-                rgba(255,255,255,0.35);
-
-            font-size: 10px;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
+            left: 0;
 
             display: flex;
-
             align-items: center;
-
             gap: 12px;
+
+            color: rgba(255,255,255,0.4);
+
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .scroll-indicator::after {
-            content: "";
-
-            width: 45px;
-
+        .scroll-line {
+            width: 60px;
             height: 1px;
 
-            background:
-                rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.25);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: "";
+
+            position: absolute;
+
+            width: 30px;
+            height: 1px;
+
+            background: #fff;
+
+            animation: scrollMove 2s infinite;
+        }
+
+        @keyframes scrollMove {
+            from {
+                left: -30px;
+            }
+
+            to {
+                left: 60px;
+            }
         }
 
 
-        /* =========================================
+        /* =====================================================
            SECTIONS
-        ========================================= */
+        ===================================================== */
 
         section {
-            padding: 110px 7vw;
-
+            padding: 110px 0;
             scroll-margin-top: 100px;
         }
 
         .section-heading {
             display: flex;
-
             justify-content: space-between;
-
             align-items: flex-end;
 
-            margin-bottom: 50px;
-
             gap: 30px;
+
+            margin-bottom: 45px;
         }
 
         .section-number {
-            color:
-                rgba(255,255,255,0.25);
-
             font-size: 11px;
+
+            color: rgba(255,255,255,0.35);
 
             letter-spacing: 2px;
 
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .section-heading h2 {
-            font-family: "Space Grotesk", sans-serif;
-
-            font-size:
-                clamp(34px,5vw,62px);
+            font-size: clamp(34px, 5vw, 64px);
 
             line-height: 1;
 
             letter-spacing: -2px;
         }
 
-        .section-heading p {
-            max-width: 380px;
+        .section-heading > p {
+            max-width: 430px;
 
-            color:
-                rgba(255,255,255,0.45);
+            color: rgba(255,255,255,0.48);
 
             font-size: 14px;
-
-            line-height: 1.7;
         }
 
 
-        /* =========================================
-           MAIN SHOWREEL
-        ========================================= */
+        /* =====================================================
+           SHOWREELS
+        ===================================================== */
 
-        .showreel-container {
+        .showreel-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+        .showreel-card {
             position: relative;
-
-            width: 100%;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            padding: 20px;
 
             border-radius: 22px;
 
             overflow: hidden;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,0.04),
-                    rgba(255,255,255,0.01)
-                );
+            border: 1px solid rgba(255,255,255,0.09);
 
-            border:
-                1px solid rgba(255,255,255,0.09);
+            background: #090909;
 
             box-shadow:
-                0 35px 100px rgba(0,0,0,0.5);
+                0 30px 100px rgba(0,0,0,0.4);
+
+            transition:
+                transform 0.5s ease,
+                border-color 0.5s ease;
         }
 
-        .showreel-container video {
-            width: auto;
+        .showreel-card:hover {
+            transform: translateY(-7px);
 
-            max-width: 100%;
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .showreel-video {
+            width: 100%;
 
             height: auto;
 
-            max-height: 78vh;
+            max-height: 75vh;
 
             display: block;
 
             object-fit: contain;
 
-            border-radius: 12px;
-
             background: #000;
         }
 
+        .showreel-info {
+            padding: 18px 20px 20px;
+        }
 
-        /* =========================================
+        .showreel-label {
+            font-size: 10px;
+
+            color: rgba(255,255,255,0.4);
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 6px;
+        }
+
+        .showreel-info h3 {
+            font-size: 20px;
+        }
+
+        .showreel-info p {
+            margin-top: 5px;
+
+            font-size: 13px;
+
+            color: rgba(255,255,255,0.45);
+        }
+
+
+        /* =====================================================
            VIDEO PROJECTS
-        ========================================= */
+        ===================================================== */
 
         .video-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(2,minmax(0,1fr));
+                repeat(2, minmax(0, 1fr));
 
-            gap: 24px;
+            gap: 20px;
         }
 
         .video-card {
-            position: relative;
-
-            background: #0b0b0b;
-
-            border:
-                1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.08);
 
             border-radius: 18px;
 
             overflow: hidden;
 
+            background: rgba(255,255,255,0.025);
+
             transition:
                 transform 0.45s ease,
                 border-color 0.45s ease,
-                box-shadow 0.45s ease;
-
-            opacity: 0;
-
-            transform:
-                translateY(30px);
-        }
-
-        .video-card.visible {
-            opacity: 1;
-
-            transform:
-                translateY(0);
+                background 0.45s ease;
         }
 
         .video-card:hover {
-            transform:
-                translateY(-8px);
+            transform: translateY(-7px);
 
-            border-color:
-                rgba(255,255,255,0.18);
+            border-color: rgba(255,255,255,0.18);
 
-            box-shadow:
-                0 25px 70px rgba(0,0,0,0.45);
+            background: rgba(255,255,255,0.045);
         }
 
         .video-wrapper {
             position: relative;
 
             background: #000;
+
+            overflow: hidden;
         }
 
         .video-wrapper video {
+            display: block;
+
             width: 100%;
 
             height: auto;
 
-            display: block;
+            max-height: 650px;
 
-            transition:
-                transform 0.6s ease;
+            object-fit: contain;
+
+            background: #000;
+
+            transition: transform 0.6s ease;
         }
 
-        .video-card:hover
-        .video-wrapper video {
-            transform:
-                scale(1.025);
+        .video-card:hover .video-wrapper video {
+            transform: scale(1.025);
         }
 
         .video-info {
-            padding:
-                18px 20px 21px;
+            padding: 17px 18px 20px;
         }
 
         .video-info h3 {
-            font-family:
-                "Space Grotesk", sans-serif;
-
-            font-size: 18px;
+            font-size: 17px;
 
             margin-bottom: 5px;
         }
@@ -622,68 +643,52 @@
         .video-info p {
             font-size: 12px;
 
-            color:
-                rgba(255,255,255,0.42);
+            color: rgba(255,255,255,0.45);
         }
 
 
-        /* =========================================
+        /* =====================================================
            BIO
-        ========================================= */
+        ===================================================== */
 
         .bio-section {
-            border-top:
-                1px solid rgba(255,255,255,0.06);
-
-            border-bottom:
-                1px solid rgba(255,255,255,0.06);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .bio-grid {
             display: grid;
 
             grid-template-columns:
-                0.8fr 1.5fr;
+                0.7fr 1.5fr;
 
             gap: 80px;
 
             align-items: start;
         }
 
-        .bio-label {
-            color:
-                rgba(255,255,255,0.35);
+        .bio-title {
+            font-size: 13px;
 
-            font-size: 12px;
+            color: rgba(255,255,255,0.4);
 
             text-transform: uppercase;
 
             letter-spacing: 2px;
         }
 
-        .bio-content h2 {
-            font-family:
-                "Space Grotesk", sans-serif;
+        .bio-text {
+            font-size: clamp(22px, 3vw, 38px);
 
-            font-size:
-                clamp(34px,5vw,58px);
+            line-height: 1.25;
 
-            line-height: 1;
+            letter-spacing: -1px;
 
-            letter-spacing: -2px;
-
-            margin-bottom: 28px;
+            color: rgba(255,255,255,0.82);
         }
 
-        .bio-content p {
-            color:
-                rgba(255,255,255,0.55);
-
-            font-size: 16px;
-
-            line-height: 1.9;
-
-            max-width: 760px;
+        .bio-text strong {
+            color: #fff;
         }
 
         .skills {
@@ -697,53 +702,51 @@
         }
 
         .skill {
-            padding:
-                8px 13px;
+            padding: 8px 12px;
 
-            border:
-                1px solid rgba(255,255,255,0.1);
+            border-radius: 999px;
 
-            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.1);
 
-            color:
-                rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.58);
 
             font-size: 11px;
+
+            background: rgba(255,255,255,0.025);
         }
 
 
-        /* =========================================
+        /* =====================================================
            IMAGE GALLERY
-        ========================================= */
+        ===================================================== */
 
         .image-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(12,1fr);
+                repeat(12, minmax(0, 1fr));
 
-            gap: 18px;
+            gap: 14px;
         }
 
         .image-card {
-            position: relative;
-
             min-height: 430px;
 
-            border-radius: 18px;
+            position: relative;
 
             overflow: hidden;
 
+            border-radius: 18px;
+
             background: #0a0a0a;
 
-            border:
-                1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.07);
 
             cursor: pointer;
 
             transition:
-                transform 0.45s ease,
-                border-color 0.45s ease;
+                transform 0.5s ease,
+                border-color 0.5s ease;
         }
 
         .image-card:nth-child(1) {
@@ -778,66 +781,56 @@
 
         .image-card img {
             width: 100%;
-
             height: 100%;
+
+            display: block;
 
             object-fit: contain;
 
             object-position: center;
 
-            display: block;
-
-            background: #090909;
+            background: #0a0a0a;
 
             transition:
-                transform 0.7s ease,
-                filter 0.7s ease;
+                transform 0.8s ease,
+                filter 0.8s ease;
         }
 
         .image-card:hover {
-            transform:
-                translateY(-6px);
+            transform: translateY(-5px);
 
-            border-color:
-                rgba(255,255,255,0.18);
+            border-color: rgba(255,255,255,0.18);
         }
 
         .image-card:hover img {
-            transform:
-                scale(1.035);
+            transform: scale(1.035);
 
-            filter:
-                brightness(1.08);
+            filter: brightness(1.05);
         }
 
 
-        /* =========================================
+        /* =====================================================
            LIGHTBOX
-        ========================================= */
+        ===================================================== */
 
         .lightbox {
             position: fixed;
 
             inset: 0;
 
+            z-index: 2000;
+
             display: none;
 
             align-items: center;
-
             justify-content: center;
 
-            padding: 30px;
+            padding: 25px;
 
-            background:
-                rgba(0,0,0,0.94);
+            background: rgba(0,0,0,0.94);
 
-            backdrop-filter:
-                blur(15px);
-
-            -webkit-backdrop-filter:
-                blur(15px);
-
-            z-index: 5000;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
 
         .lightbox.active {
@@ -846,12 +839,11 @@
 
         .lightbox img {
             max-width: 92vw;
-
             max-height: 88vh;
 
             object-fit: contain;
 
-            border-radius: 10px;
+            border-radius: 8px;
 
             box-shadow:
                 0 30px 100px rgba(0,0,0,0.7);
@@ -860,29 +852,28 @@
         .lightbox-close,
         .lightbox-prev,
         .lightbox-next {
-            position: absolute;
+            position: fixed;
 
-            width: 44px;
-
-            height: 44px;
-
-            border:
-                1px solid rgba(255,255,255,0.15);
+            width: 46px;
+            height: 46px;
 
             border-radius: 50%;
 
-            background:
-                rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.15);
 
-            color: #ffffff;
+            background: rgba(20,20,20,0.75);
+
+            color: #fff;
 
             cursor: pointer;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
+
+            font-size: 20px;
+
+            z-index: 2001;
 
             transition: 0.3s ease;
         }
@@ -890,83 +881,74 @@
         .lightbox-close:hover,
         .lightbox-prev:hover,
         .lightbox-next:hover {
-            background:
-                rgba(255,255,255,0.15);
+            background: #fff;
+            color: #000;
         }
 
         .lightbox-close {
             top: 25px;
             right: 25px;
-
-            font-size: 22px;
         }
 
         .lightbox-prev {
             left: 25px;
-
             top: 50%;
-
-            transform:
-                translateY(-50%);
-
-            font-size: 20px;
+            transform: translateY(-50%);
         }
 
         .lightbox-next {
             right: 25px;
-
             top: 50%;
-
-            transform:
-                translateY(-50%);
-
-            font-size: 20px;
+            transform: translateY(-50%);
         }
 
 
-        /* =========================================
+        /* =====================================================
            CONTACT
-        ========================================= */
+        ===================================================== */
 
         .contact-section {
-            text-align: center;
-
-            padding-top: 150px;
-
-            padding-bottom: 130px;
+            padding-bottom: 70px;
         }
 
-        .contact-section
-        .section-number {
+        .contact-box {
+            padding: clamp(30px, 6vw, 75px);
+
+            border-radius: 25px;
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(255,255,255,0.06),
+                    transparent 30%
+                ),
+                rgba(255,255,255,0.025);
+
+            text-align: center;
+        }
+
+        .contact-box .section-number {
             margin-bottom: 20px;
         }
 
-        .contact-section h2 {
-            font-family:
-                "Space Grotesk", sans-serif;
-
-            font-size:
-                clamp(45px,8vw,100px);
-
-            line-height: 0.95;
+        .contact-box h2 {
+            font-size: clamp(40px, 7vw, 82px);
 
             letter-spacing: -4px;
 
-            margin-bottom: 28px;
+            line-height: 0.95;
         }
 
-        .contact-section p {
-            max-width: 550px;
+        .contact-box p {
+            max-width: 580px;
 
-            margin:
-                0 auto 35px;
+            margin: 20px auto 0;
 
-            color:
-                rgba(255,255,255,0.48);
+            color: rgba(255,255,255,0.5);
 
-            font-size: 15px;
-
-            line-height: 1.8;
+            font-size: 14px;
         }
 
         .contact-links {
@@ -977,228 +959,93 @@
             flex-wrap: wrap;
 
             gap: 12px;
-        }
 
-        .contact-link {
-            padding:
-                12px 18px;
-
-            border:
-                1px solid rgba(255,255,255,0.1);
-
-            border-radius: 100px;
-
-            font-size: 12px;
-
-            color:
-                rgba(255,255,255,0.65);
-
-            transition: 0.3s ease;
-        }
-
-        .contact-link:hover {
-            color: #ffffff;
-
-            border-color:
-                rgba(255,255,255,0.3);
-
-            background:
-                rgba(255,255,255,0.05);
-
-            transform:
-                translateY(-3px);
+            margin-top: 30px;
         }
 
 
-        /* =========================================
+        /* =====================================================
            FOOTER
-        ========================================= */
+        ===================================================== */
 
         footer {
-            padding:
-                25px 7vw;
+            padding: 30px 0 45px;
 
             display: flex;
-
-            justify-content:
-                space-between;
-
+            justify-content: space-between;
             align-items: center;
 
-            border-top:
-                1px solid rgba(255,255,255,0.06);
+            border-top: 1px solid rgba(255,255,255,0.07);
 
-            color:
-                rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.35);
 
             font-size: 11px;
         }
 
 
-        /* =========================================
-           CURSOR
-        ========================================= */
-
-        .cursor-glow {
-            position: fixed;
-
-            width: 220px;
-
-            height: 220px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255,255,255,0.025);
-
-            filter:
-                blur(35px);
-
-            pointer-events: none;
-
-            transform:
-                translate(-50%,-50%);
-
-            z-index: -1;
-        }
-
-
-        /* =========================================
-           ANIMATIONS
-        ========================================= */
-
-        @keyframes fadeUp {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(25px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-            }
-
-        }
+        /* =====================================================
+           REVEAL ANIMATION
+        ===================================================== */
 
         .reveal {
             opacity: 0;
 
-            transform:
-                translateY(30px);
+            transform: translateY(35px);
 
             transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
+                opacity 0.9s ease,
+                transform 0.9s ease;
         }
 
         .reveal.visible {
             opacity: 1;
 
-            transform:
-                translateY(0);
+            transform: translateY(0);
         }
 
 
-        /* =========================================
+        /* =====================================================
            TABLET
-        ========================================= */
+        ===================================================== */
 
-        @media (max-width: 900px) {
+        @media (max-width: 850px) {
 
-            .hero {
-                padding-left: 5vw;
-
-                padding-right: 5vw;
+            main {
+                width: min(100% - 28px, 720px);
             }
-
-            section {
-                padding-left: 5vw;
-
-                padding-right: 5vw;
-            }
-
-            .bio-grid {
-                grid-template-columns: 1fr;
-
-                gap: 30px;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .image-card {
-                min-height: 350px;
-            }
-
-            footer {
-                padding-left: 5vw;
-
-                padding-right: 5vw;
-            }
-
-        }
-
-
-        /* =========================================
-           MOBILE
-        ========================================= */
-
-        @media (max-width: 700px) {
 
             nav {
-                width:
-                    calc(100% - 24px);
-
-                top: 10px;
-
-                padding:
-                    12px 14px;
-
-                border-radius: 15px;
-            }
-
-            .logo {
-                font-size: 17px;
+                width: calc(100% - 24px);
             }
 
             .menu-btn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .nav-links {
                 position: absolute;
 
-                top:
-                    calc(100% + 8px);
+                top: calc(100% + 10px);
 
                 left: 0;
-
                 right: 0;
+
+                padding: 10px;
 
                 display: none;
 
                 flex-direction: column;
-
                 align-items: stretch;
 
-                padding: 10px;
+                background: rgba(10,10,10,0.95);
 
-                background:
-                    rgba(10,10,10,0.96);
+                border: 1px solid rgba(255,255,255,0.09);
 
-                border:
-                    1px solid rgba(255,255,255,0.08);
+                border-radius: 16px;
 
-                border-radius: 15px;
-
-                backdrop-filter:
-                    blur(20px);
+                backdrop-filter: blur(20px);
             }
 
             .nav-links.open {
@@ -1206,107 +1053,187 @@
             }
 
             .nav-links a {
-                padding:
-                    12px 10px;
+                padding: 13px 14px;
+
+                border-radius: 10px;
+            }
+
+            .nav-links a:hover {
+                background: rgba(255,255,255,0.05);
             }
 
             .nav-links a::after {
                 display: none;
             }
 
+            .section-heading {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .showreel-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bio-grid {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+            .image-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .image-card:nth-child(n) {
+                grid-column: span 1;
+            }
+
+            .image-card {
+                min-height: 0;
+
+                height: auto;
+
+                aspect-ratio: 4 / 5;
+            }
+
+            .image-card img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: contain;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+                font-size: 14px;
+            }
+
+            .cursor-glow {
+                display: none;
+            }
+
+            nav {
+                top: 10px;
+
+                width: calc(100% - 18px);
+
+                padding: 9px 10px;
+
+                border-radius: 15px;
+            }
+
+            .logo {
+                font-size: 14px;
+            }
 
             .hero {
-                min-height: 100svh;
+                min-height: 92vh;
 
-                padding:
-                    130px 20px 80px;
+                padding-top: 120px;
+                padding-bottom: 70px;
             }
 
             .hero h1 {
-                font-size:
-                    clamp(48px,15vw,82px);
+                font-size: clamp(44px, 14vw, 78px);
 
                 letter-spacing: -3px;
-
-                line-height: 0.9;
             }
 
-            .hero-description {
-                font-size: 14px;
+            .hero-small {
+                font-size: 9px;
 
-                line-height: 1.75;
+                letter-spacing: 1.5px;
+
+                margin-bottom: 18px;
+            }
+
+            .hero-subtitle {
+                margin-top: 22px;
+
+                font-size: 16px;
+
+                line-height: 1.5;
             }
 
             .hero-buttons {
+                margin-top: 28px;
+
                 flex-direction: column;
 
                 align-items: stretch;
-
-                max-width: 280px;
             }
 
             .btn {
                 width: 100%;
             }
 
-            .scroll-indicator {
-                display: none;
+            .hero-scroll {
+                bottom: 20px;
+
+                font-size: 8px;
             }
 
-
             section {
-                padding:
-                    80px 20px;
+                padding: 75px 0;
 
                 scroll-margin-top: 80px;
             }
 
             .section-heading {
-                display: block;
+                margin-bottom: 28px;
 
-                margin-bottom: 30px;
+                gap: 15px;
             }
 
             .section-heading h2 {
-                font-size: 42px;
+                font-size: 38px;
 
                 letter-spacing: -1.5px;
-
-                margin-bottom: 15px;
             }
 
-            .section-heading p {
+            .section-heading > p {
                 font-size: 13px;
             }
 
+            .showreel-grid {
+                gap: 15px;
+            }
 
-            /* Main showreel */
-
-            .showreel-container {
-                padding: 8px;
-
+            .showreel-card {
                 border-radius: 15px;
             }
 
-            .showreel-container video {
+            .showreel-video {
                 width: 100%;
 
-                max-width: 100%;
-
-                max-height: none;
-
-                height: auto;
-
-                border-radius: 9px;
+                max-height: 72vh;
             }
 
+            .showreel-info {
+                padding: 15px;
+            }
 
-            /* Video projects */
+            .showreel-info h3 {
+                font-size: 18px;
+            }
 
             .video-grid {
                 grid-template-columns: 1fr;
 
-                gap: 16px;
+                gap: 15px;
             }
 
             .video-card {
@@ -1314,36 +1241,41 @@
             }
 
             .video-info {
-                padding: 15px;
+                padding: 14px 15px 17px;
             }
 
             .video-info h3 {
                 font-size: 16px;
             }
 
-
-            /* Bio */
-
-            .bio-content h2 {
-                font-size: 40px;
+            .bio-grid {
+                gap: 20px;
             }
 
-            .bio-content p {
-                font-size: 14px;
+            .bio-text {
+                font-size: 23px;
 
-                line-height: 1.8;
+                line-height: 1.35;
             }
 
+            .skills {
+                gap: 7px;
 
-            /* Images */
+                margin-top: 23px;
+            }
+
+            .skill {
+                padding: 7px 10px;
+
+                font-size: 10px;
+            }
 
             .image-grid {
                 grid-template-columns: 1fr;
 
-                gap: 14px;
+                gap: 12px;
             }
 
-            .image-card,
             .image-card:nth-child(n) {
                 grid-column: span 1;
 
@@ -1362,13 +1294,12 @@
                 max-height: 600px;
 
                 object-fit: contain;
+
+                display: block;
             }
 
-
-            /* Lightbox */
-
             .lightbox {
-                padding: 15px;
+                padding: 12px;
             }
 
             .lightbox img {
@@ -1377,9 +1308,17 @@
                 max-height: 82vh;
             }
 
+            .lightbox-close,
+            .lightbox-prev,
+            .lightbox-next {
+                width: 40px;
+                height: 40px;
+
+                font-size: 17px;
+            }
+
             .lightbox-close {
                 top: 15px;
-
                 right: 15px;
             }
 
@@ -1391,116 +1330,114 @@
                 right: 10px;
             }
 
+            .contact-box {
+                border-radius: 18px;
 
-            /* Contact */
-
-            .contact-section {
-                padding-top: 100px;
-
-                padding-bottom: 90px;
+                padding: 35px 20px;
             }
 
-            .contact-section h2 {
-                font-size: 52px;
+            .contact-box h2 {
+                font-size: 48px;
 
-                letter-spacing: -2px;
+                letter-spacing: -2.5px;
             }
 
-            .contact-section p {
-                font-size: 14px;
+            .contact-box p {
+                font-size: 13px;
             }
 
-
-            /* Footer */
+            .contact-links {
+                flex-direction: column;
+            }
 
             footer {
-                padding: 20px;
-
                 flex-direction: column;
 
-                gap: 8px;
+                gap: 10px;
 
                 text-align: center;
             }
-
-
-            .cursor-glow {
-                display: none;
-            }
-
         }
 
 
-        /* =========================================
+        /* =====================================================
+           VERY SMALL PHONES
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            main {
+                width: calc(100% - 22px);
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
+            .bio-text {
+                font-size: 21px;
+            }
+
+            .contact-box h2 {
+                font-size: 42px;
+            }
+        }
+
+
+        /* =====================================================
            REDUCED MOTION
-        ========================================= */
+        ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
 
             *,
             *::before,
             *::after {
-                animation-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
 
+                animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
 
                 transition-duration: 0.01ms !important;
             }
-
         }
 
     </style>
-
 </head>
 
 
 <body>
 
-
-    <div class="ambient"></div>
-
-    <div class="ambient two"></div>
-
-    <div
-        class="cursor-glow"
-        id="cursorGlow">
-    </div>
+    <!-- Cursor -->
+    <div class="cursor-glow"></div>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          NAVIGATION
-    ========================================= -->
+    ===================================================== -->
 
     <nav>
 
-        <a
-            href="#home"
-            class="logo">
-
+        <a href="#home" class="logo">
             BN<span>.</span>
-
         </a>
-
 
         <button
             class="menu-btn"
             id="menuBtn"
-            aria-label="Open Menu">
-
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
             ☰
-
         </button>
 
+        <div class="nav-links" id="navLinks">
 
-        <div
-            class="nav-links"
-            id="navLinks">
-
-            <a href="#home">
+            <a href="#home" class="active">
                 Home
             </a>
 
@@ -1525,75 +1462,51 @@
     </nav>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          MAIN
-    ========================================= -->
+    ===================================================== -->
 
     <main>
 
 
-        <!-- =====================================
+        <!-- =================================================
              HERO
-        ====================================== -->
+        ================================================= -->
 
-        <section
-            class="hero"
-            id="home">
+        <section id="home" class="hero">
 
-            <div class="hero-tag">
+            <div class="hero-small">
 
-                Available for projects
+                <span class="status-dot"></span>
+
+                Available for creative projects
 
             </div>
 
-
             <h1>
-
-                BHUVANESHWAR
-
-                <span>
-                    NEELAM
-                </span>
-
+                BHUVANESHWAR<br>
+                NEELAM
             </h1>
 
-
-            <p class="hero-description">
-
+            <p class="hero-subtitle">
                 Video Editor • Videographer • Visual Content Creator
-
-                <br>
-
-                I create engaging reels, brand videos,
-                photography and visual content designed
-                to make ideas stand out.
-
             </p>
-
 
             <div class="hero-buttons">
 
-                <a
-                    href="#showreel"
-                    class="btn btn-primary">
-
-                    Watch Showreel
-
+                <a href="#showreel" class="btn primary">
+                    View Showreels
                 </a>
 
-
-                <a
-                    href="#contact"
-                    class="btn btn-secondary">
-
+                <a href="#contact" class="btn">
                     Let's Work Together
-
                 </a>
 
             </div>
 
+            <div class="hero-scroll">
 
-            <div class="scroll-indicator">
+                <span class="scroll-line"></span>
 
                 Scroll to explore
 
@@ -1602,64 +1515,115 @@
         </section>
 
 
-        <!-- =====================================
-             MAIN SHOWREEL
-        ====================================== -->
+        <!-- =================================================
+             SHOWREELS
+        ================================================= -->
 
         <section id="showreel">
 
-
             <div class="section-heading reveal">
-
 
                 <div>
 
                     <div class="section-number">
-
-                        01 / SHOWREEL
-
+                        01 / SHOWREELS
                     </div>
 
-
                     <h2>
-
                         Selected Work
-
                     </h2>
 
                 </div>
 
-
                 <p>
-
-                    A selection of my editing,
-                    cinematography, visual storytelling
-                    and creative work.
-
+                    A selection of my editing, cinematography,
+                    visual storytelling and creative work.
                 </p>
 
             </div>
 
 
-            <div
-                class="showreel-container reveal">
+            <div class="showreel-grid">
 
 
-                <!-- NEW MAIN SHOWREEL -->
+                <!-- SHOWREEL 01 -->
 
-                <video
-                    controls
-                    playsinline
-                    preload="metadata">
+                <article class="showreel-card reveal">
 
-                    <source
-                        src="videos/Showreel.mp4"
-                        type="video/mp4">
+                    <video
+                        class="showreel-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
 
-                    Your browser does not
-                    support the video tag.
+                        <source
+                            src="videos/Showreel.mp4"
+                            type="video/mp4"
+                        >
 
-                </video>
+                        Your browser does not support
+                        the video tag.
+
+                    </video>
+
+                    <div class="showreel-info">
+
+                        <div class="showreel-label">
+                            Showreel 01
+                        </div>
+
+                        <h3>
+                            Main Showreel
+                        </h3>
+
+                        <p>
+                            Editing, videography and visual storytelling.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SHOWREEL 02 -->
+
+                <article class="showreel-card reveal">
+
+                    <video
+                        class="showreel-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="videos/Reel.mp4"
+                            type="video/mp4"
+                        >
+
+                        Your browser does not support
+                        the video tag.
+
+                    </video>
+
+                    <div class="showreel-info">
+
+                        <div class="showreel-label">
+                            Showreel 02
+                        </div>
+
+                        <h3>
+                            Creative Reel
+                        </h3>
+
+                        <p>
+                            A second selection of creative video work.
+                        </p>
+
+                    </div>
+
+                </article>
 
 
             </div>
@@ -1667,41 +1631,29 @@
         </section>
 
 
-        <!-- =====================================
+        <!-- =================================================
              VIDEO PROJECTS
-        ====================================== -->
+        ================================================= -->
 
         <section id="videos">
 
-
             <div class="section-heading reveal">
-
 
                 <div>
 
                     <div class="section-number">
-
-                        02 / VIDEO
-
+                        02 / VIDEO PROJECTS
                     </div>
 
-
                     <h2>
-
-                        Video Projects
-
+                        Videos
                     </h2>
 
                 </div>
 
-
                 <p>
-
-                    Reels, brand content,
-                    social media edits,
-                    creative experiments
-                    and short-form videos.
-
+                    Reels, brand videos, social media edits,
+                    cinematic content and creative experiments.
                 </p>
 
             </div>
@@ -1710,343 +1662,257 @@
             <div class="video-grid">
 
 
-                <!-- =================================
-                     PROJECT 01 — OLD SHOWREEL
-                ================================== -->
+                <!-- OLD SHOWREEL -->
 
-                <article class="video-card">
-
+                <article class="video-card reveal">
 
                     <div class="video-wrapper">
-
 
                         <video
                             controls
                             playsinline
-                            preload="metadata">
+                            preload="metadata"
+                        >
 
                             <source
                                 src="videos/showreel.mp4"
-                                type="video/mp4">
+                                type="video/mp4"
+                            >
+
+                            Your browser does not support
+                            the video tag.
 
                         </video>
 
-
                     </div>
-
 
                     <div class="video-info">
 
-
                         <h3>
-
                             Showreel
-
                         </h3>
 
-
                         <p>
-
-                            Selected editing and
-                            visual work
-
+                            Selected editing and visual work
                         </p>
 
-
                     </div>
-
 
                 </article>
 
 
-                <!-- =================================
-                     PROJECT 02
-                ================================== -->
+                <!-- INFLUENCER REEL -->
 
-                <article class="video-card">
-
+                <article class="video-card reveal">
 
                     <div class="video-wrapper">
-
 
                         <video
                             controls
                             playsinline
-                            preload="metadata">
+                            preload="metadata"
+                        >
 
                             <source
                                 src="videos/Influencer Reel.mp4"
-                                type="video/mp4">
+                                type="video/mp4"
+                            >
 
                         </video>
 
-
                     </div>
-
 
                     <div class="video-info">
 
-
                         <h3>
-
                             Influencer Reel
-
                         </h3>
 
-
                         <p>
-
-                            Short-form social media edit
-
+                            Short-form social media content
                         </p>
 
-
                     </div>
-
 
                 </article>
 
 
-                <!-- =================================
-                     PROJECT 03
-                ================================== -->
+                <!-- INFLUENCER SAMPLE -->
 
-                <article class="video-card">
-
+                <article class="video-card reveal">
 
                     <div class="video-wrapper">
-
 
                         <video
                             controls
                             playsinline
-                            preload="metadata">
+                            preload="metadata"
+                        >
 
                             <source
                                 src="videos/Influencer Sample edit.mp4"
-                                type="video/mp4">
+                                type="video/mp4"
+                            >
 
                         </video>
 
-
                     </div>
-
 
                     <div class="video-info">
 
-
                         <h3>
-
                             Influencer Sample Edit
-
                         </h3>
 
-
                         <p>
-
-                            Creative short-form edit
-
+                            Creative short-form editing
                         </p>
 
-
                     </div>
-
 
                 </article>
 
 
-                <!-- =================================
-                     PROJECT 04
-                ================================== -->
+                <!-- PRINTFUL -->
 
-                <article class="video-card">
-
+                <article class="video-card reveal">
 
                     <div class="video-wrapper">
-
 
                         <video
                             controls
                             playsinline
-                            preload="metadata">
+                            preload="metadata"
+                        >
 
                             <source
                                 src="videos/PrintfulBrand.mp4"
-                                type="video/mp4">
+                                type="video/mp4"
+                            >
 
                         </video>
 
-
                     </div>
-
 
                     <div class="video-info">
 
-
                         <h3>
-
                             Brand Video
-
                         </h3>
 
-
                         <p>
-
-                            Product and
-                            brand-focused content
-
+                            Product and brand-focused content
                         </p>
 
-
                     </div>
-
 
                 </article>
 
 
-                <!-- =================================
-                     PROJECT 05
-                ================================== -->
+                <!-- SNEAKERS -->
 
-                <article class="video-card">
-
+                <article class="video-card reveal">
 
                     <div class="video-wrapper">
-
 
                         <video
                             controls
                             playsinline
-                            preload="metadata">
+                            preload="metadata"
+                        >
 
                             <source
                                 src="videos/Sneakers.mp4"
-                                type="video/mp4">
+                                type="video/mp4"
+                            >
 
                         </video>
 
-
                     </div>
-
 
                     <div class="video-info">
 
-
                         <h3>
-
                             Sneakers
-
                         </h3>
 
-
                         <p>
-
-                            Product-focused
-                            creative edit
-
+                            Product-focused visual edit
                         </p>
 
-
                     </div>
-
 
                 </article>
 
 
-                <!-- =================================
-                     PROJECT 06
-                ================================== -->
+                <!-- SONGS -->
 
-                <article class="video-card">
-
+                <article class="video-card reveal">
 
                     <div class="video-wrapper">
-
 
                         <video
                             controls
                             playsinline
-                            preload="metadata">
+                            preload="metadata"
+                        >
 
                             <source
                                 src="videos/Songs reels.mp4"
-                                type="video/mp4">
+                                type="video/mp4"
+                            >
 
                         </video>
 
-
                     </div>
-
 
                     <div class="video-info">
 
-
                         <h3>
-
                             Music Reel
-
                         </h3>
 
-
                         <p>
-
-                            Beat-driven
-                            short-form edit
-
+                            Music-driven visual editing
                         </p>
 
-
                     </div>
-
 
                 </article>
 
 
-                <!-- =================================
-                     PROJECT 07
-                ================================== -->
+                <!-- TEMPLE -->
 
-                <article class="video-card">
-
+                <article class="video-card reveal">
 
                     <div class="video-wrapper">
-
 
                         <video
                             controls
                             playsinline
-                            preload="metadata">
+                            preload="metadata"
+                        >
 
                             <source
                                 src="videos/Temple Reel.mp4"
-                                type="video/mp4">
+                                type="video/mp4"
+                            >
 
                         </video>
 
-
                     </div>
-
 
                     <div class="video-info">
 
-
                         <h3>
-
                             Temple Reel
-
                         </h3>
 
-
                         <p>
-
-                            Cinematic
-                            visual storytelling
-
+                            Cinematic travel and cultural content
                         </p>
 
-
                     </div>
-
 
                 </article>
 
@@ -2056,168 +1922,99 @@
         </section>
 
 
-        <!-- =====================================
+        <!-- =================================================
              BIO
-        ====================================== -->
+        ================================================= -->
 
-        <section
-            class="bio-section"
-            id="bio">
+        <section class="bio-section">
 
+            <div class="bio-grid reveal">
 
-            <div class="bio-grid">
+                <div>
 
-
-                <div class="bio-label reveal">
-
-                    About Me
-
-                </div>
-
-
-                <div
-                    class="bio-content reveal">
-
-
-                    <h2>
-
-                        Turning ideas into
-                        visual stories.
-
-                    </h2>
-
-
-                    <p>
-
-                        I'm Bhuvaneshwar Neelam,
-                        a Video Editor, Videographer
-                        and Visual Content Creator
-                        focused on turning ideas into
-                        engaging visual stories.
-
-                        From short-form reels and
-                        brand content to photography
-                        and cinematic edits, I enjoy
-                        combining creative direction,
-                        clean editing and strong visual
-                        storytelling to create content
-                        that connects.
-
-                    </p>
-
-
-                    <div class="skills">
-
-
-                        <span class="skill">
-                            Video Editing
-                        </span>
-
-
-                        <span class="skill">
-                            Videography
-                        </span>
-
-
-                        <span class="skill">
-                            Photography
-                        </span>
-
-
-                        <span class="skill">
-                            Reels
-                        </span>
-
-
-                        <span class="skill">
-                            Brand Videos
-                        </span>
-
-
-                        <span class="skill">
-                            CapCut
-                        </span>
-
-
-                        <span class="skill">
-                            Lightroom
-                        </span>
-
-
-                        <span class="skill">
-                            Premiere Pro
-                        </span>
-
-
-                        <span class="skill">
-                            Photoshop
-                        </span>
-
-
-                        <span class="skill">
-                            After Effects
-                        </span>
-
-
-                        <span class="skill">
-                            Motion Graphics
-                        </span>
-
-
-                        <span class="skill">
-                            Color Correction
-                        </span>
-
-
+                    <div class="bio-title">
+                        About Me
                     </div>
 
-
                 </div>
-
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =====================================
-             IMAGES
-        ====================================== -->
-
-        <section id="images">
-
-
-            <div class="section-heading reveal">
 
 
                 <div>
 
+                    <div class="bio-text">
 
-                    <div class="section-number">
+                        I'm
+                        <strong>Bhuvaneshwar Neelam</strong>,
+                        a Video Editor, Videographer and Visual
+                        Content Creator focused on turning ideas
+                        into engaging visual stories.
 
-                        03 / PHOTOGRAPHY
+                    </div>
+
+                    <div class="bio-text" style="margin-top:25px;">
+
+                        From short-form reels and brand content
+                        to photography and cinematic edits,
+                        I combine creative direction, clean editing
+                        and strong visual storytelling to create
+                        content that connects.
 
                     </div>
 
 
-                    <h2>
+                    <div class="skills">
 
-                        Images
+                        <span class="skill">Video Editing</span>
+                        <span class="skill">Videography</span>
+                        <span class="skill">Photography</span>
+                        <span class="skill">Reels</span>
+                        <span class="skill">Short-form Content</span>
+                        <span class="skill">Brand Videos</span>
+                        <span class="skill">CapCut</span>
+                        <span class="skill">Premiere Pro</span>
+                        <span class="skill">After Effects</span>
+                        <span class="skill">Photoshop</span>
+                        <span class="skill">Lightroom</span>
+                        <span class="skill">Canva</span>
+                        <span class="skill">Color Correction</span>
+                        <span class="skill">Motion Graphics</span>
+                        <span class="skill">Sound Design</span>
+                        <span class="skill">Camera Operation</span>
+                        <span class="skill">Lighting</span>
 
-                    </h2>
-
+                    </div>
 
                 </div>
 
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             IMAGES
+        ================================================= -->
+
+        <section id="images">
+
+            <div class="section-heading reveal">
+
+                <div>
+
+                    <div class="section-number">
+                        03 / PHOTOGRAPHY
+                    </div>
+
+                    <h2>
+                        Images
+                    </h2>
+
+                </div>
 
                 <p>
-
-                    Photography, visual experiments
-                    and selected image work.
-
+                    Photography and visual frames captured
+                    across different environments and projects.
                 </p>
-
 
             </div>
 
@@ -2225,379 +2022,311 @@
             <div class="image-grid">
 
 
-                <div class="image-card">
-
+                <div class="image-card reveal">
                     <img
                         src="images/image1.png"
-                        alt="Photography work 1">
-
+                        alt="Photography project 1"
+                        loading="lazy"
+                    >
                 </div>
 
 
-                <div class="image-card">
-
+                <div class="image-card reveal">
                     <img
                         src="images/image2.png"
-                        alt="Photography work 2">
-
+                        alt="Photography project 2"
+                        loading="lazy"
+                    >
                 </div>
 
 
-                <div class="image-card">
-
+                <div class="image-card reveal">
                     <img
                         src="images/image3.png"
-                        alt="Photography work 3">
-
+                        alt="Photography project 3"
+                        loading="lazy"
+                    >
                 </div>
 
 
-                <div class="image-card">
-
+                <div class="image-card reveal">
                     <img
                         src="images/image4.png"
-                        alt="Photography work 4">
-
+                        alt="Photography project 4"
+                        loading="lazy"
+                    >
                 </div>
 
 
-                <div class="image-card">
-
+                <div class="image-card reveal">
                     <img
                         src="images/image5.png"
-                        alt="Photography work 5">
-
+                        alt="Photography project 5"
+                        loading="lazy"
+                    >
                 </div>
 
 
-                <div class="image-card">
-
+                <div class="image-card reveal">
                     <img
                         src="images/image6.png"
-                        alt="Photography work 6">
-
+                        alt="Photography project 6"
+                        loading="lazy"
+                    >
                 </div>
 
 
-                <div class="image-card">
-
+                <div class="image-card reveal">
                     <img
                         src="images/image7.png"
-                        alt="Photography work 7">
-
+                        alt="Photography project 7"
+                        loading="lazy"
+                    >
                 </div>
 
 
-                <div class="image-card">
-
+                <div class="image-card reveal">
                     <img
                         src="images/image8.jpeg"
-                        alt="Photography work 8">
-
+                        alt="Photography project 8"
+                        loading="lazy"
+                    >
                 </div>
 
 
-                <div class="image-card">
-
+                <div class="image-card reveal">
                     <img
                         src="images/image9.jpeg"
-                        alt="Photography work 9">
-
+                        alt="Photography project 9"
+                        loading="lazy"
+                    >
                 </div>
 
 
             </div>
 
-
         </section>
 
 
-        <!-- =====================================
+        <!-- =================================================
              CONTACT
-        ====================================== -->
+        ================================================= -->
 
-        <section
-            class="contact-section"
-            id="contact">
+        <section id="contact" class="contact-section">
 
+            <div class="contact-box reveal">
 
-            <div
-                class="section-number reveal">
+                <div class="section-number">
+                    04 / CONTACT
+                </div>
 
-                04 / CONTACT
+                <h2>
+                    LET'S CREATE.
+                </h2>
 
-            </div>
-
-
-            <h2 class="reveal">
-
-                Let's create
-                something.
-
-            </h2>
+                <p>
+                    Looking for a video editor, videographer or
+                    visual content creator? Let's talk about your
+                    next project.
+                </p>
 
 
-            <p class="reveal">
+                <div class="contact-links">
 
-                Have a project, brand, reel
-                or creative idea?
+                    <a
+                        class="btn primary"
+                        href="mailto:bhuvanroyal2901@gmail.com"
+                    >
+                        Email Me
+                    </a>
 
-                I'd love to hear about it and
-                explore how we can turn it into
-                engaging visual content.
+                    <a
+                        class="btn"
+                        href="https://www.instagram.com/smartblink_visuals/"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Instagram
+                    </a>
 
-            </p>
-
-
-            <div
-                class="contact-links reveal">
-
-
-                <a
-                    class="contact-link"
-                    href="mailto:bhuvanroyal2901@gmail.com">
-
-                    Email Me
-
-                </a>
-
-
-                <a
-                    class="contact-link"
-                    href="https://www.instagram.com/smartblink_visuals/"
-                    target="_blank"
-                    rel="noopener">
-
-                    Instagram
-
-                </a>
-
-
-                <a
-                    class="contact-link"
-                    href="https://bhuvanroyal2901-rgb.github.io/myPortfolio/"
-                    target="_blank"
-                    rel="noopener">
-
-                    Portfolio
-
-                </a>
-
+                </div>
 
             </div>
-
 
         </section>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================= -->
+
+        <footer>
+
+            <div>
+                © 2026 Bhuvaneshwar Neelam
+            </div>
+
+            <div>
+                Video Editor • Videographer • Visual Content Creator
+            </div>
+
+        </footer>
 
 
     </main>
 
 
-    <!-- =========================================
-         FOOTER
-    ========================================= -->
-
-    <footer>
-
-
-        <div>
-
-            © 2026 BHUVANESHWAR NEELAM
-
-        </div>
-
-
-        <div>
-
-            Video Editor • Videographer •
-            Visual Content Creator
-
-        </div>
-
-
-    </footer>
-
-
-    <!-- =========================================
+    <!-- =====================================================
          LIGHTBOX
-    ========================================= -->
+    ===================================================== -->
 
     <div
         class="lightbox"
-        id="lightbox">
-
+        id="lightbox"
+        aria-hidden="true"
+    >
 
         <button
             class="lightbox-close"
             id="lightboxClose"
-            aria-label="Close">
-
+            aria-label="Close image"
+        >
             ×
-
         </button>
-
 
         <button
             class="lightbox-prev"
             id="lightboxPrev"
-            aria-label="Previous image">
-
+            aria-label="Previous image"
+        >
             ‹
-
         </button>
-
 
         <img
             id="lightboxImage"
             src=""
-            alt="Expanded photography">
-
+            alt="Expanded photography"
+        >
 
         <button
             class="lightbox-next"
             id="lightboxNext"
-            aria-label="Next image">
-
+            aria-label="Next image"
+        >
             ›
-
         </button>
-
 
     </div>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          JAVASCRIPT
-    ========================================= -->
+    ===================================================== -->
 
     <script>
 
-
-        /* =========================================
+        /* =====================================================
            MOBILE MENU
-        ========================================= */
+        ===================================================== */
 
-        const menuBtn =
-            document.getElementById("menuBtn");
-
-        const navLinks =
-            document.getElementById("navLinks");
-
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
 
         menuBtn.addEventListener("click", () => {
 
+            const isOpen =
+                navLinks.classList.toggle("open");
 
-            navLinks.classList.toggle("open");
-
+            menuBtn.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
 
             menuBtn.textContent =
-                navLinks.classList.contains("open")
-                    ? "×"
-                    : "☰";
-
+                isOpen ? "×" : "☰";
 
         });
 
+
+        /* Close mobile menu after clicking */
 
         document
             .querySelectorAll(".nav-links a")
             .forEach(link => {
 
-
                 link.addEventListener("click", () => {
-
 
                     navLinks.classList.remove("open");
 
+                    menuBtn.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
 
                     menuBtn.textContent = "☰";
 
-
                 });
-
 
             });
 
 
-        /* =========================================
+        /* =====================================================
            CURSOR GLOW
-        ========================================= */
+        ===================================================== */
 
         const cursorGlow =
-            document.getElementById("cursorGlow");
-
+            document.querySelector(".cursor-glow");
 
         if (
-            window.matchMedia("(pointer:fine)").matches
+            window.matchMedia(
+                "(pointer: fine)"
+            ).matches
         ) {
 
+            window.addEventListener("mousemove", event => {
 
-            document.addEventListener(
-                "mousemove",
-                e => {
+                cursorGlow.style.left =
+                    event.clientX + "px";
 
+                cursorGlow.style.top =
+                    event.clientY + "px";
 
-                    cursorGlow.style.left =
-                        e.clientX + "px";
-
-
-                    cursorGlow.style.top =
-                        e.clientY + "px";
-
-
-                }
-            );
-
+            });
 
         }
 
 
-        /* =========================================
+        /* =====================================================
            SCROLL REVEAL
-        ========================================= */
+        ===================================================== */
 
         const revealElements =
             document.querySelectorAll(".reveal");
 
-
         const revealObserver =
             new IntersectionObserver(
-
-
                 entries => {
-
 
                     entries.forEach(entry => {
 
-
                         if (entry.isIntersecting) {
 
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
-                            entry.target
-                                .classList
-                                .add("visible");
-
-
-                            revealObserver
-                                .unobserve(
-                                    entry.target
-                                );
-
+                            revealObserver.unobserve(
+                                entry.target
+                            );
 
                         }
 
-
                     });
 
-
                 },
-
-
                 {
                     threshold: 0.12
                 }
-
-
             );
 
 
@@ -2608,260 +2337,126 @@
         });
 
 
-        /* =========================================
-           VIDEO CARD REVEAL
-        ========================================= */
-
-        const videoCards =
-            document.querySelectorAll(
-                ".video-card"
-            );
-
-
-        const videoObserver =
-            new IntersectionObserver(
-
-
-                entries => {
-
-
-                    entries.forEach(entry => {
-
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-
-                            const card =
-                                entry.target;
-
-
-                            const index =
-                                [...videoCards]
-                                .indexOf(card);
-
-
-                            setTimeout(() => {
-
-
-                                card.classList.add(
-                                    "visible"
-                                );
-
-
-                            }, index * 100);
-
-
-                            videoObserver
-                                .unobserve(card);
-
-
-                        }
-
-
-                    });
-
-
-                },
-
-
-                {
-                    threshold: 0.08
-                }
-
-
-            );
-
-
-        videoCards.forEach(card => {
-
-            videoObserver.observe(card);
-
-        });
-
-
-        /* =========================================
-           AUTO PAUSE OTHER VIDEOS
-        ========================================= */
+        /* =====================================================
+           VIDEO AUTO PAUSE
+        ===================================================== */
 
         const allVideos =
             document.querySelectorAll("video");
 
-
         allVideos.forEach(video => {
 
+            video.addEventListener("play", () => {
 
-            video.addEventListener(
-                "play",
-                () => {
+                allVideos.forEach(otherVideo => {
 
+                    if (
+                        otherVideo !== video &&
+                        !otherVideo.paused
+                    ) {
 
-                    allVideos.forEach(
-                        otherVideo => {
+                        otherVideo.pause();
 
+                    }
 
-                            if (
-                                otherVideo !== video
-                            ) {
+                });
 
-
-                                otherVideo.pause();
-
-
-                            }
-
-
-                        }
-                    );
-
-
-                }
-            );
-
+            });
 
         });
 
 
-        /* =========================================
+        /* =====================================================
            IMAGE LIGHTBOX
-        ========================================= */
+        ===================================================== */
 
         const imageCards =
-            document.querySelectorAll(
-                ".image-card img"
-            );
-
-
-        const lightbox =
-            document.getElementById(
-                "lightbox"
-            );
-
-
-        const lightboxImage =
-            document.getElementById(
-                "lightboxImage"
-            );
-
-
-        const lightboxClose =
-            document.getElementById(
-                "lightboxClose"
-            );
-
-
-        const lightboxPrev =
-            document.getElementById(
-                "lightboxPrev"
-            );
-
-
-        const lightboxNext =
-            document.getElementById(
-                "lightboxNext"
-            );
-
+            document.querySelectorAll(".image-card img");
 
         const imageSources =
             Array.from(imageCards)
-                .map(img => img.src);
-
+                .map(image => image.src);
 
         let currentImage = 0;
 
+        const lightbox =
+            document.getElementById("lightbox");
 
-        function openLightbox(index) {
+        const lightboxImage =
+            document.getElementById("lightboxImage");
+
+        const lightboxClose =
+            document.getElementById("lightboxClose");
+
+        const lightboxPrev =
+            document.getElementById("lightboxPrev");
+
+        const lightboxNext =
+            document.getElementById("lightboxNext");
 
 
-            currentImage = index;
+        function showImage(index) {
 
+            if (!imageSources.length) return;
+
+            currentImage =
+                (index + imageSources.length)
+                % imageSources.length;
 
             lightboxImage.src =
                 imageSources[currentImage];
 
-
             lightbox.classList.add("active");
 
+            lightbox.setAttribute(
+                "aria-hidden",
+                "false"
+            );
 
             document.body.style.overflow =
                 "hidden";
-
 
         }
 
 
         function closeLightbox() {
 
+            lightbox.classList.remove("active");
 
-            lightbox.classList.remove(
-                "active"
+            lightbox.setAttribute(
+                "aria-hidden",
+                "true"
             );
-
 
             document.body.style.overflow =
                 "";
 
+        }
+
+
+        function nextImage() {
+
+            showImage(currentImage + 1);
 
         }
 
 
-        function showNextImage() {
+        function previousImage() {
 
-
-            currentImage =
-                (
-                    currentImage + 1
-                )
-                %
-                imageSources.length;
-
-
-            lightboxImage.src =
-                imageSources[currentImage];
-
+            showImage(currentImage - 1);
 
         }
 
 
-        function showPreviousImage() {
+        imageCards.forEach((image, index) => {
 
+            image.addEventListener("click", () => {
 
-            currentImage =
-                (
-                    currentImage -
-                    1 +
-                    imageSources.length
-                )
-                %
-                imageSources.length;
+                showImage(index);
 
+            });
 
-            lightboxImage.src =
-                imageSources[currentImage];
-
-
-        }
-
-
-        imageCards.forEach(
-            (image,index) => {
-
-
-                image.addEventListener(
-                    "click",
-                    () => {
-
-
-                        openLightbox(index);
-
-
-                    }
-                );
-
-
-            }
-        );
+        });
 
 
         lightboxClose.addEventListener(
@@ -2872,99 +2467,84 @@
 
         lightboxNext.addEventListener(
             "click",
-            showNextImage
+            nextImage
         );
 
 
         lightboxPrev.addEventListener(
             "click",
-            showPreviousImage
+            previousImage
         );
 
 
         lightbox.addEventListener(
             "click",
-            e => {
-
+            event => {
 
                 if (
-                    e.target === lightbox
+                    event.target === lightbox
                 ) {
-
 
                     closeLightbox();
 
-
                 }
-
 
             }
         );
 
 
-        /* =========================================
-           KEYBOARD CONTROLS
-        ========================================= */
+        /* =====================================================
+           KEYBOARD LIGHTBOX CONTROLS
+        ===================================================== */
 
         document.addEventListener(
             "keydown",
-            e => {
-
+            event => {
 
                 if (
                     !lightbox.classList.contains(
                         "active"
                     )
                 ) {
-
                     return;
-
                 }
 
-
-                if (e.key === "Escape") {
+                if (event.key === "Escape") {
 
                     closeLightbox();
 
                 }
 
+                if (event.key === "ArrowRight") {
 
-                if (e.key === "ArrowRight") {
-
-                    showNextImage();
-
-                }
-
-
-                if (e.key === "ArrowLeft") {
-
-                    showPreviousImage();
+                    nextImage();
 
                 }
 
+                if (event.key === "ArrowLeft") {
+
+                    previousImage();
+
+                }
 
             }
         );
 
 
-        /* =========================================
+        /* =====================================================
            MOBILE IMAGE SWIPE
-        ========================================= */
+        ===================================================== */
 
         let touchStartX = 0;
-
         let touchEndX = 0;
 
 
-        lightboxImage.addEventListener(
+        lightbox.addEventListener(
             "touchstart",
-            e => {
-
+            event => {
 
                 touchStartX =
-                    e.changedTouches[0]
-                        .screenX;
-
+                    event.changedTouches[0].screenX;
 
             },
             {
@@ -2973,40 +2553,31 @@
         );
 
 
-        lightboxImage.addEventListener(
+        lightbox.addEventListener(
             "touchend",
-            e => {
-
+            event => {
 
                 touchEndX =
-                    e.changedTouches[0]
-                        .screenX;
-
+                    event.changedTouches[0].screenX;
 
                 const distance =
-                    touchEndX -
-                    touchStartX;
+                    touchEndX - touchStartX;
 
 
-                if (
-                    Math.abs(distance) < 50
-                ) {
-
+                if (Math.abs(distance) < 50) {
                     return;
-
                 }
 
 
                 if (distance < 0) {
 
-                    showNextImage();
+                    nextImage();
 
                 } else {
 
-                    showPreviousImage();
+                    previousImage();
 
                 }
-
 
             },
             {
@@ -3015,91 +2586,119 @@
         );
 
 
-        /* =========================================
+        /* =====================================================
            ACTIVE NAVIGATION
-        ========================================= */
+        ===================================================== */
 
-        const navItems =
+        const navAnchors =
             document.querySelectorAll(
                 ".nav-links a"
             );
 
 
-        const trackedSections =
-            document.querySelectorAll(
-                "#home, #showreel, #videos, #images, #contact"
-            );
+        const trackedSections = [
+            document.getElementById("home"),
+            document.getElementById("showreel"),
+            document.getElementById("videos"),
+            document.getElementById("images"),
+            document.getElementById("contact")
+        ];
 
 
         const navObserver =
             new IntersectionObserver(
-
-
                 entries => {
-
 
                     entries.forEach(entry => {
 
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-
-                            navItems.forEach(
-                                item => {
-
-                                    item.classList
-                                        .remove(
-                                            "active"
-                                        );
-
-                                }
-                            );
-
-
-                            const active =
-                                document.querySelector(
-                                    `.nav-links a[href="#${entry.target.id}"]`
-                                );
-
-
-                            if (active) {
-
-
-                                active.classList
-                                    .add("active");
-
-
-                            }
-
-
+                        if (!entry.isIntersecting) {
+                            return;
                         }
 
 
+                        navAnchors.forEach(link => {
+
+                            link.classList.remove(
+                                "active"
+                            );
+
+                        });
+
+
+                        const activeLink =
+                            document.querySelector(
+                                `.nav-links a[href="#${entry.target.id}"]`
+                            );
+
+
+                        if (activeLink) {
+
+                            activeLink.classList.add(
+                                "active"
+                            );
+
+                        }
+
                     });
 
-
                 },
-
-
                 {
                     threshold: 0.35
                 }
-
-
             );
 
 
         trackedSections.forEach(section => {
 
-            navObserver.observe(section);
+            if (section) {
+
+                navObserver.observe(section);
+
+            }
 
         });
 
 
-    </script>
+        /* =====================================================
+           SHOWREEL CARD STAGGER
+        ===================================================== */
 
+        const showreelCards =
+            document.querySelectorAll(
+                ".showreel-card"
+            );
+
+
+        showreelCards.forEach(
+            (card, index) => {
+
+                card.style.transitionDelay =
+                    `${index * 0.12}s`;
+
+            }
+        );
+
+
+        /* =====================================================
+           VIDEO CARD STAGGER
+        ===================================================== */
+
+        const videoCards =
+            document.querySelectorAll(
+                ".video-card"
+            );
+
+
+        videoCards.forEach(
+            (card, index) => {
+
+                card.style.transitionDelay =
+                    `${(index % 2) * 0.12}s`;
+
+            }
+        );
+
+    </script>
 
 </body>
 </html>
